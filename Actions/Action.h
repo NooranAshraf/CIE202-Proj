@@ -3,7 +3,7 @@
 
 class ApplicationManager; //forward class declaration
 
-
+//This is a test
 //Base class for all possible actions (abstract class)
 class Action
 {
