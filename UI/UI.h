@@ -40,7 +40,8 @@ class UI
 		//If you want to change the menu items order, just change the order here
 		ITM_RES,	//Resistor item in menu
 
-ITM_BULB,
+        ITM_BULB,
+
 		ITM_EXIT,		//Exit item
 
 		
