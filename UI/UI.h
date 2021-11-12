@@ -80,6 +80,7 @@ ITM_BULB,
 	color ConnColor;		//Connector color
 	color MsgColor;			//Messages color
 	color BkGrndColor;		//Back ground color
+	//..
 
 
 
