@@ -73,7 +73,7 @@ ITM_BULB,
 
 						//Arbitrary values, you can change as you wish
 						COMP_WIDTH = 100,		//Component Image width
-						COMP_HEIGHT = 70;		//Component Image height
+						COMP_HEIGHT = 70;		//Component Image height//test3
 
 	color DrawColor;		//Drawing color
 	color SelectColor;		//Highlighting color
