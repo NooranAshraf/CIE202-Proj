@@ -145,9 +145,6 @@
       <Filter>Actions</Filter>
     </ClCompile>
     <ClCompile Include="Components\Bulb.cpp" />
-    <ClCompile Include="..\..\project\Battery\battery.cpp">
-      <Filter>Components</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Components\Component.h">
@@ -231,9 +228,6 @@
       <Filter>Actions</Filter>
     </ClInclude>
     <ClInclude Include="Components\Bulb.h" />
-    <ClInclude Include="..\..\project\Battery\battery.h">
-      <Filter>Components</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="CMUgraphicsLib\Manual.txt">
