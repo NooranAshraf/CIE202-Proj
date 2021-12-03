@@ -1,17 +1,17 @@
-#include "ActionAddRes.h"
+#include "ActionAddFuse.h"
 #include "..\ApplicationManager.h"
 
-ActionAddRes::ActionAddRes(ApplicationManager *pApp):Action(pApp)
+ActionAddFuse::ActionAddFuse(ApplicationManager *pApp):Action(pApp)
 {
 }
 
-ActionAddRes::~ActionAddRes(void)
+ActionAddFuse::~ActionAddFuse(void)
 {
 }
 
-void ActionAddRes::Execute()
+void ActionAddFuse::Execute()
 {
-	
+
 	//Get a Pointer to the user Interfaces
 	UI* pUI = pManager->GetUI();
 
@@ -22,11 +22,11 @@ void ActionAddRes::Execute()
 	pUI->GetPointClicked(Cx, Cy);
 
 	//Clear Status Bar
-	pUI->ClearStatusBar();	
-	
-	
-	GraphicsInfo * pGInfo= new GraphicsInfo(2); //Gfx info to be used to construct the Comp
-	
+	pUI->ClearStatusBar();
+
+
+	GraphicsInfo* pGInfo = new GraphicsInfo(2); //Gfx info to be used to construct the Comp
+
 	//Calculate the rectangle Corners
 	int compWidth = pUI->getCompWidth();
 	int compHeight = pUI->getCompHeight();
@@ -45,20 +45,19 @@ void ActionAddRes::Execute()
 	//Clear Status Bar
 	pUI->ClearStatusBar();
 
-	//Set the Graphics info
+	//Set the graphcis info
 
-	pGInfo->PointsList[0].x = Cx - compWidth/2;
-	pGInfo->PointsList[0].y = Cy - compHeight/2;
-	pGInfo->PointsList[1].x = Cx + compWidth/2;
-	pGInfo->PointsList[1].y = Cy + compHeight/2;
-	 
-	Resistor* pR = new Resistor(pGInfo);
+	pGInfo->PointsList[0].x = Cx - compWidth / 2;
+	pGInfo->PointsList[0].y = Cy - compHeight / 2;
+	pGInfo->PointsList[1].x = Cx + compWidth / 2;
+	pGInfo->PointsList[1].y = Cy + compHeight / 2;
+
+	Fuse* pR = new Fuse(pGInfo);
 	pManager->AddComponent(pR);
 }
 
-void ActionAddRes::Undo()
+void ActionAddFuse::Undo()
 {}
 
-void ActionAddRes::Redo()
+void ActionAddFuse::Redo()
 {}
-

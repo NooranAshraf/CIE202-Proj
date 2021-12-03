@@ -144,7 +144,21 @@
     <ClCompile Include="Actions\ActionAddBulb.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
-    <ClCompile Include="Components\Bulb.cpp" />
+    <ClCompile Include="Components\Bulb.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\battery.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\Fuse.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Actions\ActionAddBattery.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="Actions\ActionAddFuse.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Components\Component.h">
@@ -227,7 +241,21 @@
     <ClInclude Include="Actions\ActionAddBulb.h">
       <Filter>Actions</Filter>
     </ClInclude>
-    <ClInclude Include="Components\Bulb.h" />
+    <ClInclude Include="Components\Bulb.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\battery.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\Fuse.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Actions\ActionAddBattery.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Actions\ActionAddFuse.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="CMUgraphicsLib\Manual.txt">

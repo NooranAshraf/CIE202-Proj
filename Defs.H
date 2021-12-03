@@ -9,7 +9,11 @@ enum ActionType
 	ADD_RESISTOR,		//Add a resistor
 	ADD_SWITCH,			//Add Switch
 	ADD_BULB,			//Add LAMP
+	ADD_BATTERY,        //ADD BATTERY
+	ADD_FUSE,            //ADD FUSE
+	ADD_BUZZER,
 	ADD_CONNECTION,		//Add Wire Connection
+	        
 
 	ADD_Label,			//Add Label to a Component, a Connection
 	EDIT_Label,			//Edit Label of a Component, a Connection

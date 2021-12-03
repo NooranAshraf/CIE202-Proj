@@ -1,6 +1,9 @@
 #include "ApplicationManager.h"
 #include "Actions\ActionAddRes.h"
 #include "Actions\ActionAddBulb.h"
+#include "Actions/ActionAddBattery.h"
+#include "Actions/ActionAddFuse.h"
+#include "Actions/ActionAddBuzzer.h"
 
 
 ApplicationManager::ApplicationManager()
@@ -38,6 +41,16 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		case ADD_BULB:
 			pAct = new ActionAddBulb(this);
 			break;
+		case ADD_BATTERY:
+			pAct = new ActionAddBattery(this);
+			break;
+		case ADD_FUSE:
+			pAct = new ActionAddFuse(this);
+			break;
+		case ADD_BUZZER:
+			pAct = new ActionAddBuzzer(this);
+			break;
+
 		case ADD_CONNECTION:
 			//TODO: Create AddConection Action here
 			break;

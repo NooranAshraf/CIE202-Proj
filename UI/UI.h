@@ -40,7 +40,11 @@ class UI
 		//If you want to change the menu items order, just change the order here
 		ITM_RES,	//Resistor item in menu
 
-        ITM_BULB,
+		ITM_BULB,
+                ITM_BUZZER,
+		ITM_BATTERY,
+		ITM_FUSE,
+                ITM_SWITCH,
 
 		ITM_EXIT,		//Exit item
 
@@ -116,6 +120,14 @@ public:
 	void DrawResistor(const GraphicsInfo &r_GfxInfo, bool selected = false) const;
 
 	void DrawBulb(const GraphicsInfo &r_GfxInfo, bool selected = false) const;
+
+	void DrawBattery(const GraphicsInfo& r_GfxInfo, bool selected = false) const;
+
+	void DrawFuse(const GraphicsInfo& r_GfxInfo, bool selected = false) const;
+      
+        void DrawBuzzer(const GraphicsInfo& r_GfxInfo, bool selected = false) const;
+
+        void DrawSwitch(const GraphicsInfo& r_GfxInfo, bool selected = false) const;
 
 	///TODO: Make similar functions for drawing all other components, connections, .. etc
 

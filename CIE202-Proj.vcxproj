@@ -113,8 +113,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Actions\ActionAddBattery.cpp" />
+    <ClCompile Include="Actions\ActionAddFuse.cpp" />
     <ClCompile Include="Actions\ActionAddRes.cpp" />
     <ClCompile Include="ApplicationManager.cpp" />
+    <ClCompile Include="Components\battery.cpp" />
     <ClCompile Include="CMUgraphicsLib\CMUgraphics.cpp" />
     <ClCompile Include="CMUgraphicsLib\colors.cpp" />
     <ClCompile Include="CMUgraphicsLib\image.cpp" />
@@ -154,14 +157,18 @@
     <ClCompile Include="Components\Connection.cpp" />
     <ClCompile Include="Components\Resistor.cpp" />
     <ClCompile Include="Components\Bulb.cpp" />
+    <ClCompile Include="Components\Fuse.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Actions\ActionAddBulb.cpp" />
     <ClCompile Include="UI\UI.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Actions\ActionAddBattery.h" />
+    <ClInclude Include="Actions\ActionAddFuse.h" />
     <ClInclude Include="Actions\Action.h" />
     <ClInclude Include="Actions\ActionAddRes.h" />
     <ClInclude Include="ApplicationManager.h" />
+    <ClInclude Include="Components\battery.h" />
     <ClInclude Include="CMUgraphicsLib\CMUgraphics.h" />
     <ClInclude Include="CMUgraphicsLib\colors.h" />
     <ClInclude Include="CMUgraphicsLib\error.h" />
@@ -187,6 +194,7 @@
     <ClInclude Include="Components\Resistor.h" />
     <ClInclude Include="Defs.H" />
     <ClInclude Include="Actions\ActionAddBulb.h" />
+    <ClInclude Include="Components\Fuse.h" />
     <ClInclude Include="UI\UI.h" />
   </ItemGroup>
   <ItemGroup>

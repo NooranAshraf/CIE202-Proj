@@ -1,7 +1,7 @@
 #ifndef _COMPONENT_H
 #define _COMPONENT_H
 
-#include "Defs.H"
+#include "..\Defs.H"
 #include "..\UI\UI.h"
 #include "Connection.h"
 
