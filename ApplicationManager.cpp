@@ -48,7 +48,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			pAct = new ActionAddFuse(this);
 			break;
 		case ADD_BUZZER:
-			pAct = new ActionAddBuzzer(this);
+			//pAct = new ActionAddBuzzer(this);
 			break;
 
 		case ADD_CONNECTION:

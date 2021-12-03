@@ -198,8 +198,8 @@ void UI::CreateDesignToolBar()
 	//TODO: Prepare image for each menu item and add it to the list
 
 	//Draw menu item one image at a time
-	for(int i=0; i<ITM_DSN_CNT; i++)
-		pWind->DrawImage(MenuItemImages[i],i*ToolItemWidth,0,ToolItemWidth, ToolBarHeight);
+	/*for(int i=0; i<ITM_DSN_CNT; i++)
+		pWind->DrawImage(MenuItemImages[i],i*ToolItemWidth,0,ToolItemWidth, ToolBarHeight);*/
 
 
 	//Draw a line under the toolbar
