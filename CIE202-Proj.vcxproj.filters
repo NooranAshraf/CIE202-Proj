@@ -159,6 +159,18 @@
     <ClCompile Include="Actions\ActionAddFuse.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
+    <ClCompile Include="Ground.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Actions\ActionAddSwitch.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="Actions\ActionAddBuzzer.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="ActionAddGround.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Components\Component.h">
@@ -254,6 +266,18 @@
       <Filter>Actions</Filter>
     </ClInclude>
     <ClInclude Include="Actions\ActionAddFuse.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Ground.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Actions\ActionAddSwitch.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Actions\ActionAddBuzzer.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="ActionAddGround.h">
       <Filter>Actions</Filter>
     </ClInclude>
   </ItemGroup>

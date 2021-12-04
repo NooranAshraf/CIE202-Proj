@@ -41,10 +41,12 @@ class UI
 		ITM_RES,	//Resistor item in menu
 
 		ITM_BULB,
-                ITM_BUZZER,
+        ITM_BUZZER,
 		ITM_BATTERY,
 		ITM_FUSE,
-                ITM_SWITCH,
+        ITM_SWITCH,
+		ITM_GROUND,
+
 
 		ITM_EXIT,		//Exit item
 
@@ -125,9 +127,11 @@ public:
 
 	void DrawFuse(const GraphicsInfo& r_GfxInfo, bool selected = false) const;
       
-        void DrawBuzzer(const GraphicsInfo& r_GfxInfo, bool selected = false) const;
+    void DrawBuzzer(const GraphicsInfo& r_GfxInfo, bool selected = false) const;
 
-        void DrawSwitch(const GraphicsInfo& r_GfxInfo, bool selected = false) const;
+    void DrawSwitch(const GraphicsInfo& r_GfxInfo, bool selected = false) const;
+
+	void DrawGround(const GraphicsInfo& r_GfxInfo, bool selected = false) const;
 
 	///TODO: Make similar functions for drawing all other components, connections, .. etc
 

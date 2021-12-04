@@ -187,20 +187,20 @@ void UI::CreateDesignToolBar()
 	//First prepare List of images for each menu item
 	string MenuItemImages[ITM_DSN_CNT];
 	MenuItemImages[ITM_RES] = "images\\Menu\\Menu_Resistor.jpg";
-        MenuItemImages[ITM_BUZZER] = "images\\Menu\\Buzzer.PNG";
+        MenuItemImages[ITM_BUZZER] = "images\\Menu\\Buzzer.jpg";
 	MenuItemImages[ITM_BULB] = "images\\Menu\\Menu_Bulb.jpg";
-        MenuItemImages[ITM_SWITCH] = "images\\Menu\\Switch.PNG";
+        MenuItemImages[ITM_SWITCH] = "images\\Menu\\Switch.jpg";
 	MenuItemImages[ITM_EXIT] = "images\\Menu\\Menu_Exit.jpg";
 	MenuItemImages[ITM_BATTERY] = "images\\Menu\\Menu_Battery.jpg";
 	MenuItemImages[ITM_FUSE] = "images\\Menu\\Menu_Fuse.jpg";
-
+	MenuItemImages[ITM_GROUND] = "images\\Menu\\Ground.jpg";
 
 	//TODO: Prepare image for each menu item and add it to the list
 
 	//Draw menu item one image at a time
-	/*for(int i=0; i<ITM_DSN_CNT; i++)
-		pWind->DrawImage(MenuItemImages[i],i*ToolItemWidth,0,ToolItemWidth, ToolBarHeight);*/
-
+	for (int i = 0; i < ITM_DSN_CNT; i++) {
+		pWind->DrawImage(MenuItemImages[i], i * ToolItemWidth, 0, ToolItemWidth, ToolBarHeight);
+	}
 
 	//Draw a line under the toolbar
 	pWind->SetPen(RED,3);
@@ -292,6 +292,18 @@ void UI::DrawSwitch(const GraphicsInfo& r_GfxInfo, bool selected) const
 
 
 	pWind->DrawImage(SwitchImage, r_GfxInfo.PointsList[0].x, r_GfxInfo.PointsList[0].y, COMP_WIDTH, COMP_HEIGHT);
+}
+
+void UI::DrawGround(const GraphicsInfo& r_GfxInfo, bool selected) const
+{
+	string GroundImage;
+	if (selected)
+		GroundImage = "Images\\Comp\\Ground_HI.jpg";
+	else
+		GroundImage = "Images\\Comp\\Ground.jpg";
+
+
+	pWind->DrawImage(GroundImage, r_GfxInfo.PointsList[0].x, r_GfxInfo.PointsList[0].y, COMP_WIDTH, COMP_HEIGHT);
 }
 
 
