@@ -1,5 +1,5 @@
 #include "ActionAddGround.h"
-#include "ApplicationManager.h"
+#include "../ApplicationManager.h"
 
 ActionAddGround::ActionAddGround(ApplicationManager* pApp) :Action(pApp)
 {

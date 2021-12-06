@@ -103,6 +103,7 @@ ActionType UI::GetUserAction() const
             case ITM_BUZZER:  return ADD_BUZZER;
 			case ITM_FUSE: return ADD_FUSE;
 			case ITM_SWITCH:  return ADD_SWITCH;
+			case ITM_GROUND: return ADD_GROUND;
             case ITM_EXIT:	return EXIT;	
 			
 			default: return DSN_TOOL;	//A click on empty place in desgin toolbar
@@ -243,7 +244,7 @@ void UI::DrawBulb(const GraphicsInfo &r_GfxInfo, bool selected) const
 	else
 		BulbImage = "Images\\Comp\\Bulb.jpg";	//use image of the normal bulb
 
-													//Draw bulb at Gfx_Info (1st corner)
+													//Draw bulb at Gfx_Info (2nd corner)
 	pWind->DrawImage(BulbImage, r_GfxInfo.PointsList[0].x, r_GfxInfo.PointsList[0].y, COMP_WIDTH, COMP_HEIGHT);
 };
 

@@ -1,7 +1,7 @@
 #pragma once
 
-#include "Actions/Action.h"
-#include "Components/Ground.h"
+#include "Action.h"
+#include "../Components/Ground.h"
 
 class ActionAddGround : public Action
 {

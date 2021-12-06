@@ -1,9 +1,12 @@
 #include "ApplicationManager.h"
 #include "Actions\ActionAddRes.h"
 #include "Actions\ActionAddBulb.h"
-#include "Actions/ActionAddBattery.h"
-#include "Actions/ActionAddFuse.h"
-#include "Actions/ActionAddBuzzer.h"
+#include "Actions\ActionAddBattery.h"
+#include "Actions\ActionAddFuse.h"
+#include "Actions\ActionAddBuzzer.h"
+#include "Actions\ActionAddGround.h"
+#include"Actions\ActionAddSwitch.h"
+
 
 
 ApplicationManager::ApplicationManager()
@@ -26,7 +29,7 @@ void ApplicationManager::AddComponent(Component* pComp)
 ActionType ApplicationManager::GetUserAction()
 {
 	//Call input to get what action is reuired from the user
-	return pUI->GetUserAction(); 	
+	return pUI->GetUserAction(); 
 }
 ////////////////////////////////////////////////////////////////////
 
@@ -48,7 +51,12 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			pAct = new ActionAddFuse(this);
 			break;
 		case ADD_BUZZER:
-			//pAct = new ActionAddBuzzer(this);
+			pAct = new ActionAddBuzzer(this);
+			break;
+		case ADD_SWITCH:
+			pAct = new ActionAddSwitch(this);
+		case ADD_GROUND:
+			pAct = new ActionAddGround(this);
 			break;
 
 		case ADD_CONNECTION:

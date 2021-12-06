@@ -159,16 +159,22 @@
     <ClCompile Include="Actions\ActionAddFuse.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
-    <ClCompile Include="Ground.cpp">
-      <Filter>Components</Filter>
-    </ClCompile>
     <ClCompile Include="Actions\ActionAddSwitch.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
     <ClCompile Include="Actions\ActionAddBuzzer.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
-    <ClCompile Include="ActionAddGround.cpp">
+    <ClCompile Include="Components\Buzzer.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\Switch.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\Ground.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Actions\ActionAddGround.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
   </ItemGroup>
@@ -268,16 +274,22 @@
     <ClInclude Include="Actions\ActionAddFuse.h">
       <Filter>Actions</Filter>
     </ClInclude>
-    <ClInclude Include="Ground.h">
-      <Filter>Components</Filter>
-    </ClInclude>
     <ClInclude Include="Actions\ActionAddSwitch.h">
       <Filter>Actions</Filter>
     </ClInclude>
     <ClInclude Include="Actions\ActionAddBuzzer.h">
       <Filter>Actions</Filter>
     </ClInclude>
-    <ClInclude Include="ActionAddGround.h">
+    <ClInclude Include="Components\Buzzer.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\Switch.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\Ground.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Actions\ActionAddGround.h">
       <Filter>Actions</Filter>
     </ClInclude>
   </ItemGroup>

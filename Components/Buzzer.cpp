@@ -3,8 +3,7 @@
 
 Buzzer::Buzzer(GraphicsInfo* r_GfxInfo) :Component(r_GfxInfo)
 {
-	resistance = 0;
-	sourceVoltage = 0;
+	
 }
 
 void Buzzer::Draw(UI* pUI)

@@ -16,7 +16,7 @@ void ActionAddFuse::Execute()
 	UI* pUI = pManager->GetUI();
 
 	//Print Action Message
-	pUI->PrintMsg("Adding a new resistor: Click anywhere to add");
+	pUI->PrintMsg("Adding a new fuse: Click anywhere to add");
 
 	//Get Center point of the area where the Comp should be drawn
 	pUI->GetPointClicked(Cx, Cy);

@@ -12,6 +12,7 @@ enum ActionType
 	ADD_BATTERY,        //ADD BATTERY
 	ADD_FUSE,            //ADD FUSE
 	ADD_BUZZER,
+	ADD_GROUND,
 	ADD_CONNECTION,		//Add Wire Connection
 	        
 

@@ -1,5 +1,5 @@
-//#ifndef APPLICATION_MANAGER_H
-//#define APPLICATION_MANAGER_H
+#ifndef APPLICATION_MANAGER_H
+#define APPLICATION_MANAGER_H
 
 #include "Defs.h"
 #include "UI\UI.h"
@@ -44,4 +44,4 @@ public:
 	~ApplicationManager();
 };
 
-//#endif
+#endif
