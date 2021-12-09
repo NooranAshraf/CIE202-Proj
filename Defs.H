@@ -4,7 +4,7 @@
 //This header file contains some defenitions to be used all over the application
 
 //All possible actions
-enum ActionType 
+enum ActionType
 {
 	ADD_RESISTOR,		//Add a resistor
 	ADD_SWITCH,			//Add Switch
@@ -14,7 +14,7 @@ enum ActionType
 	ADD_BUZZER,
 	ADD_GROUND,
 	ADD_CONNECTION,		//Add Wire Connection
-	        
+	EDIT,
 
 	ADD_Label,			//Add Label to a Component, a Connection
 	EDIT_Label,			//Edit Label of a Component, a Connection

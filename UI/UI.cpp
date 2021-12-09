@@ -105,6 +105,7 @@ ActionType UI::GetUserAction() const
 			case ITM_SWITCH:  return ADD_SWITCH;
 			case ITM_GROUND: return ADD_GROUND;
             case ITM_EXIT:	return EXIT;	
+			case ITM_EDIT: return EDIT;
 			
 			default: return DSN_TOOL;	//A click on empty place in desgin toolbar
 			}
@@ -195,6 +196,7 @@ void UI::CreateDesignToolBar()
 	MenuItemImages[ITM_BATTERY] = "images\\Menu\\Menu_Battery.jpg";
 	MenuItemImages[ITM_FUSE] = "images\\Menu\\Menu_Fuse.jpg";
 	MenuItemImages[ITM_GROUND] = "images\\Menu\\Ground.jpg";
+	MenuItemImages[ITM_EDIT] = "images\\Menu\\Edit.jpg";
 
 	//TODO: Prepare image for each menu item and add it to the list
 

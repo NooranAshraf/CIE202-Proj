@@ -119,6 +119,8 @@
     <ClCompile Include="Actions\ActionAddGround.cpp" />
     <ClCompile Include="Actions\ActionAddRes.cpp" />
     <ClCompile Include="Actions\ActionAddSwitch.cpp" />
+    <ClCompile Include="Actions\ActionEdit.cpp" />
+    <ClCompile Include="Actions\ActionSelect.cpp" />
     <ClCompile Include="ApplicationManager.cpp" />
     <ClCompile Include="Components\battery.cpp" />
     <ClCompile Include="CMUgraphicsLib\CMUgraphics.cpp" />
@@ -176,6 +178,8 @@
     <ClInclude Include="Actions\ActionAddGround.h" />
     <ClInclude Include="Actions\ActionAddRes.h" />
     <ClInclude Include="Actions\ActionAddSwitch.h" />
+    <ClInclude Include="Actions\ActionEdit.h" />
+    <ClInclude Include="Actions\ActionSelect.h" />
     <ClInclude Include="ApplicationManager.h" />
     <ClInclude Include="Components\battery.h" />
     <ClInclude Include="CMUgraphicsLib\CMUgraphics.h" />

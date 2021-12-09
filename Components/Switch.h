@@ -7,5 +7,5 @@ public:
 	Switch(GraphicsInfo *r_GfxInfo);
 	virtual void Draw(UI*);	//Draws the switch
 	virtual void Operate();
-	bool Switched(int i);
+	virtual void Edit(UI*);
 };

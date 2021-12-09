@@ -21,6 +21,9 @@ protected:
 
 	int term1_conn_count;	//actual no. of connections to each terminal
 	int term2_conn_count;
+	bool selected;
+	double voltage;
+	double resistance;
 
 
 	GraphicsInfo *m_pGfxInfo;	//The parameters required to draw a component
@@ -31,16 +34,19 @@ public:
 	//void setTerm2Volt(double v);		//sets the voltage at terminal2
 	//double getTerm1Volt();				//returns the voltage at terminal1
 	//double getTerm2Volt();				//returns the voltage at terminal2
+	void setLabel(string label);
+	string getLabel() const;
 
 	virtual void Operate() = 0;	//Calculates the output voltage according to the inputs
 	virtual void Draw(UI* ) = 0;	//for each component to Draw itself
-	
+	virtual void Edit(UI*) = 0;   //To edit label and voltage -N
 	
 	//virtual int GetOutPinStatus()=0;	//returns status of outputpin if LED, return -1
 	//virtual int GetInputPinStatus(int n)=0;	//returns status of Inputpin # n if SWITCH, return -1
 
 	//virtual void setInputPinStatus(int n, STATUS s)=0;	//set status of Inputpin # n, to be used by connection class.
-
+	void Select();
+	bool available(int x, int y); //returns true if the point clicked contains this component-N
 	
 	Component();	
 	

@@ -41,11 +41,12 @@ class UI
 		ITM_RES,	//Resistor item in menu
 
 		ITM_BULB,
-        ITM_BUZZER,
+		ITM_BUZZER,
 		ITM_BATTERY,
 		ITM_FUSE,
-        ITM_SWITCH,
+		ITM_SWITCH,
 		ITM_GROUND,
+		ITM_EDIT,
 
 
 		ITM_EXIT,		//Exit item

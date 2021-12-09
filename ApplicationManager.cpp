@@ -6,6 +6,8 @@
 #include "Actions\ActionAddBuzzer.h"
 #include "Actions\ActionAddGround.h"
 #include"Actions\ActionAddSwitch.h"
+#include "Actions\ActionSelect.h"
+#include "Actions/ActionEdit.h"
 
 
 
@@ -55,10 +57,16 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			break;
 		case ADD_SWITCH:
 			pAct = new ActionAddSwitch(this);
+			break;
 		case ADD_GROUND:
 			pAct = new ActionAddGround(this);
 			break;
-
+		case SELECT:
+			pAct = new ActionSelect(this);
+			break;
+		case EDIT :
+			pAct = new ActionEdit(this);
+			break;
 		case ADD_CONNECTION:
 			//TODO: Create AddConection Action here
 			break;
@@ -92,6 +100,16 @@ UI* ApplicationManager::GetUI()
 
 ////////////////////////////////////////////////////////////////////
 
+//to check which component is clicked on - Nour
+Component* ApplicationManager::ReturnComp(int x, int y) {
+	for (int i = 0; i < CompCount; i++) {
+		if (CompList[i]->available(x, y)) {
+			return CompList[i];
+		}
+	}
+	return nullptr;
+}
+
 ApplicationManager::~ApplicationManager()
 {
 	for(int i=0; i<CompCount; i++)
@@ -99,3 +117,4 @@ ApplicationManager::~ApplicationManager()
 	delete pUI;
 	
 }
+//testing
