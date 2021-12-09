@@ -117,4 +117,4 @@ ApplicationManager::~ApplicationManager()
 	delete pUI;
 	
 }
-//testing
+//PLEASE WORK - 
