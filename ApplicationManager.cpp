@@ -117,4 +117,3 @@ ApplicationManager::~ApplicationManager()
 	delete pUI;
 	
 }
-//PLEASE WORK - 

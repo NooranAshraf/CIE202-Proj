@@ -78,6 +78,24 @@ string UI::GetSrting()
 
 }
 
+//getters for the dimesions of the window. -Nour
+
+int UI::getWinWidth() const {
+	return width;
+}
+
+int UI::getWinHeight() const {
+	return height;
+}
+
+int UI::getToolBarHeight() const {
+	return ToolBarHeight;
+}
+
+int UI::getStatBarHeight() const {
+	return StatusBarHeight;
+}
+
 //This function reads the position where the user clicks to determine the desired action
 ActionType UI::GetUserAction() const
 {	
@@ -120,8 +138,9 @@ ActionType UI::GetUserAction() const
 		//[3] User clicks on the status bar
 		return STATUS_BAR;
 	}
-	else	//Application is in Simulation mode
+	else 	//Application is in Simulation mode
 	{
+
 		return SIM_MODE;	//This should be changed after creating the compelete simulation bar 
 	}
 
@@ -197,6 +216,7 @@ void UI::CreateDesignToolBar()
 	MenuItemImages[ITM_FUSE] = "images\\Menu\\Menu_Fuse.jpg";
 	MenuItemImages[ITM_GROUND] = "images\\Menu\\Ground.jpg";
 	MenuItemImages[ITM_EDIT] = "images\\Menu\\Edit.jpg";
+	MenuItemImages[ITM_SIM] = "images\\Menu\\SwitchToSim.jpg";
 
 	//TODO: Prepare image for each menu item and add it to the list
 
@@ -216,6 +236,16 @@ void UI::CreateSimulationToolBar()
 {
 	AppMode = SIMULATION;	//Simulation Mode
 
+	string MenuItemImages[ITM_SIM_CNT];
+	MenuItemImages[ITM_CIRC_SIM] = "images\\Menu\\Start_SIM.jpg";
+	MenuItemImages[ITM_VOL] = "images\\Menu\\Voltmeter_SIM.jpg";
+	for (int i = 0; i < ITM_SIM_CNT; i++) {
+		pWind->DrawImage(MenuItemImages[i], i * ToolItemWidth, 0, ToolItemWidth, ToolBarHeight);
+	}
+
+	//Draw a line under the toolbar
+	pWind->SetPen(RED, 3);
+	pWind->DrawLine(0, ToolBarHeight, width, ToolBarHeight);
 	//TODO: Write code to draw the simualtion toolbar (similar to that of design toolbar drawing)
 
 

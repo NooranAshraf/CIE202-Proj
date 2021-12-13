@@ -47,6 +47,7 @@ class UI
 		ITM_SWITCH,
 		ITM_GROUND,
 		ITM_EDIT,
+		ITM_SIM,
 
 
 		ITM_EXIT,		//Exit item
@@ -62,10 +63,11 @@ class UI
 	{
 		//Note: Items are ordered here as they appear in menu
 		ITM_CIRC_SIM,	//Circuit Simulate menu item
-	
+
 		//TODO:Add more items names here
-	
-		ITM_SIM_CNT		//no. of simulation menu items ==> This should be the last line in this enum
+ITM_VOL,  // adds a voltmeter
+		ITM_SIM_CNT,		//no. of simulation menu items ==> This should be the last line in this enum
+		
 	
 	};
 
@@ -99,7 +101,11 @@ public:
 	UI();
 	int getCompWidth() const;	//returns Component width
 	int getCompHeight() const;	//returns Component height
-	
+
+	int getWinHeight() const;
+	int getWinWidth() const;
+	int getToolBarHeight() const;
+	int getStatBarHeight() const;
 	
 	// Input Functions  ---------------------------
 	void GetPointClicked(int &, int &);	//Get coordinate where user clicks

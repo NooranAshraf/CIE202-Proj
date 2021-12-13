@@ -39,5 +39,7 @@ string Component::getLabel() const {
 
 
 Component::~Component()
-{}
+{ 
+	delete m_pGfxInfo;
+}
 
