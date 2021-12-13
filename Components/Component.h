@@ -47,6 +47,7 @@ public:
 	//virtual void setInputPinStatus(int n, STATUS s)=0;	//set status of Inputpin # n, to be used by connection class.
 	void Select();
 	bool available(int x, int y); //returns true if the point clicked contains this component-N
+	void Unselect();
 	
 	Component();	
 	

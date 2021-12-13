@@ -115,6 +115,12 @@ Component* ApplicationManager::ReturnComp(int x, int y) {
 	return nullptr;
 }
 
+void ApplicationManager::UnselectAll() {
+	for (int i = 0; i < CompCount; i++) {
+		CompList[i]->Unselect();
+	}
+}
+
 ApplicationManager::~ApplicationManager()
 {
 	for(int i=0; i<CompCount; i++)

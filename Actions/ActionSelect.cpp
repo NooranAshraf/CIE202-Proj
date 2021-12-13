@@ -28,6 +28,9 @@ void ActionSelect::Execute()
 	if (pSelect != nullptr) {
 		pSelect->Select();
 	}
+	else pManager->UnselectAll();
+
+
 
 
 }

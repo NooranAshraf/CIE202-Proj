@@ -36,6 +36,9 @@ void Component::setLabel(string label) {
 string Component::getLabel() const {
 	return m_Label;
 }
+void Component::Unselect() {
+	selected = false;
+}
 
 
 Component::~Component()

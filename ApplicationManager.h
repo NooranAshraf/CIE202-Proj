@@ -40,6 +40,8 @@ public:
 	//Adds a new component to the list of components
 	void AddComponent(Component* pComp);
 
+	void UnselectAll();
+
 	Component* ReturnComp(int x, int y);
 
 	//destructor
