@@ -4,6 +4,9 @@
 #include <cmath>
 
 #include "ApplicationManager.h"
+#include "Components/Component.h"
+
+int Component::st_id = 0;
 
 int main()
 {

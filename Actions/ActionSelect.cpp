@@ -28,19 +28,14 @@ void ActionSelect::Execute()
 	if (pSelect != nullptr) {
 		pSelect->Select();
 	}
-	else {
-		pManager->UnselectAll();
 
-	}
 
 	Connection* pSelectCon = pManager->GetConnectionByCoordinates(Cx, Cy);
 	if(pSelectCon != nullptr){
 		pSelectCon->selectConn();
     }
-	else {
+	if (pSelectCon == nullptr && pSelect == nullptr)
 		pManager->UnselectAll();
-	}
-
 
 
 

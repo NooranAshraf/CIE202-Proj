@@ -17,8 +17,8 @@ UI::UI()
 
 	ChangeTitle("Logic Simulator Project");
 
-	CreateDesignToolBar();	//Create the desgin toolbar
-	
+	//CreateDesignToolBar();	//Create the desgin toolbar
+	CreateSimulationToolBar();
 	CreateStatusBar();		//Create Status bar
 
 }
@@ -125,6 +125,8 @@ ActionType UI::GetUserAction() const
 			case ITM_SWITCH:  return ADD_SWITCH;
 			case ITM_GROUND: return ADD_GROUND;
 			case ITM_EDIT: return EDIT;
+			case ITM_SAVE: return SAVE;
+			case ITM_LOAD: return LOAD;
             case ITM_EXIT:	return EXIT;
 
 			
@@ -240,6 +242,8 @@ void UI::CreateDesignToolBar()
 	MenuItemImages[ITM_FUSE] = "images\\Menu\\Menu_Fuse.jpg";
 	MenuItemImages[ITM_GROUND] = "images\\Menu\\Ground.jpg";
 	MenuItemImages[ITM_EDIT] = "images\\Menu\\Edit.jpg";
+	MenuItemImages[ITM_SAVE] = "images\\Menu\\save.jpg";
+	MenuItemImages[ITM_LOAD] = "images\\Menu\\load.jpg";
 	MenuItemImages[ITM_SIM] = "images\\Menu\\SwitchToSim.jpg";
 
 	//TODO: Prepare image for each menu item and add it to the list

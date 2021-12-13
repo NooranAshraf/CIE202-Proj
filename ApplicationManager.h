@@ -48,6 +48,9 @@ public:
 	//Adds a new component to the list of components
 	void AddComponent(Component* pComp);
 	void AddConnection(Connection* pConn);
+	void Save(fstream& file);  //save function 
+	void Load(fstream& file);  //Load function
+
 
 	void UnselectAll();
 
@@ -56,6 +59,7 @@ public:
 	Connection* GetConnectionByCoordinates(int x, int y);
 
 	Component* ReturnComp(int x, int y);
+	Component* ReturnCompbyID(int id);
 
 	//destructor
 	~ApplicationManager();

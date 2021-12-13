@@ -1,6 +1,7 @@
 #pragma once
 #include "Component.h"
 
+
 class battery :public Component
 {
 public:
@@ -8,5 +9,7 @@ public:
 	virtual void Operate();	//Calculates the volt on both terminals
 	virtual void Draw(UI*);	//Draws the battery
 	virtual void Edit(UI*);
+	virtual void SaveComponent(fstream& file);
+	virtual void LoadComponent(fstream& file, UI* pUI);
 };
 

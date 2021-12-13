@@ -1,4 +1,5 @@
 #include "Connection.h"
+#include "Component.h"
 
 Connection::Connection(GraphicsInfo* r_GfxInfo, Component* cmp1, Component* cmp2)
 {
@@ -59,4 +60,19 @@ void Connection::selectConn() {
 void Connection::Unselect() {
 	selected = false;
 }
-	
+void Connection::SaveConnection(fstream& file) {
+	file << Comp1->getID() << " " << Comp2->getID() << "\n";
+
+}
+void Connection::LoadConnection(UI* pUI) {
+	int x1 = Comp1->getCoordinates().x;
+	int x2 = Comp2->getCoordinates().x;
+	int y1 = Comp1->getCoordinates().y;
+	int y2 = Comp2->getCoordinates().y;
+	if (x2 > x1) {
+		pGfxInfo->PointsList[1].x = x2;
+		pGfxInfo->PointsList[1].y = y2 - pUI->getCompHeight() / 2;
+		pGfxInfo->PointsList[0].x = x1 + pUI->getCompWidth();
+		pGfxInfo->PointsList[0].y = y1;
+	}
+}

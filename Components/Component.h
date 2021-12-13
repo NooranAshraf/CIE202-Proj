@@ -4,6 +4,7 @@
 #include "..\Defs.H"
 #include "..\UI\UI.h"
 #include "Connection.h"
+#include <fstream>
 
 
 //Base class for all components (resistor, capacitor,....etc) .
@@ -24,11 +25,16 @@ protected:
 	bool selected;
 	double voltage;
 	double resistance;
+    
+	int id; // theses two lines are for the id of the components to save in the file
+	double value;
+	string Type;
 
 
 	GraphicsInfo *m_pGfxInfo;	//The parameters required to draw a component
 
 public:
+	static int st_id;
 	Component(GraphicsInfo *r_GfxInfo);
 	//void setTerm1Volt(double v);		//sets the voltage at terminal1
 	//void setTerm2Volt(double v);		//sets the voltage at terminal2
@@ -36,6 +42,11 @@ public:
 	//double getTerm2Volt();				//returns the voltage at terminal2
 	void setLabel(string label);
 	string getLabel() const;
+	double getResistance() const;
+	double getVoltage() const;
+	int getID() const; //for the save file
+	Point getCoordinates() const; //for the save file
+	double getValue() const;
 
 	virtual void Operate() = 0;	//Calculates the output voltage according to the inputs
 	virtual void Draw(UI* ) = 0;	//for each component to Draw itself
@@ -48,6 +59,9 @@ public:
 	void Select();
 	bool available(int x, int y); //returns true if the point clicked contains this component-N
 	void Unselect();
+	virtual void SaveComponent(fstream& file) = 0;
+	virtual void LoadComponent(fstream& file, UI* pUI) = 0;
+
 	
 	Component();	
 	

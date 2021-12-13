@@ -9,6 +9,8 @@
 #include "Actions\ActionSelect.h"
 #include "Actions/ActionEdit.h"
 #include "Actions/ActionSwitchToDSN.h"
+#include "Actions/ActionSave.h"
+#include "Actions/ActionLoad.h"
 
 
 
@@ -68,6 +70,12 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		case DSN_MODE:
 			pAct = new ActionSwitchToDSN(this);
 			break;
+		case SAVE:
+			pAct = new ActionSave(this);
+			break;
+		case LOAD:
+			pAct = new ActionLoad(this);
+			break;
 
 		case EDIT :
 			pAct = new ActionEdit(this);
@@ -120,15 +128,95 @@ void ApplicationManager::UnselectAll() {
 	for (int i = 0; i < CompCount; i++) {
 		CompList[i]->Unselect();
 	}
-	for (int i = 0; i < CompCount; i++) {
+	for (int i = 0; i < ConnCount; i++) {
 		ConnList[i]->Unselect();
 	}
 }
 
+////////////////////////////////////////////////////////////////////
+void ApplicationManager::Save(fstream& file) {                 // save function
+	file << std::to_string(CompCount) + "\n";
+
+	for (int i = 0; i < CompCount; i++) {
+		CompList[i]->SaveComponent(file);
+	}
+	file << std::to_string(ConnCount) + "\n";
+	for (int i = 0; i < ConnCount; i++) {
+		ConnList[i]->SaveConnection(file);
+
+	}
+}
+////////////////////////////////////////////////////////
+
+void ApplicationManager::Load(fstream& file) {
+	string text;
+
+	getline(file, text); // reads each ch till the end of the line
+	int Counter = stoi(text);
+
+	for (int i = 0; i < Counter; i++) {
+
+		getline(file, text, ' ');  //reads till the space
+		string type = text;
+
+		// get type from text
+		GraphicsInfo* pGInfo = new GraphicsInfo(2);
+
+		if (type == "RES") {
+			Resistor* pR = new Resistor(pGInfo);
+			AddComponent(pR);
+			pR->LoadComponent(file, pUI);
+		}
+		else if (type == "BLB") {
+			battery* pB = new battery(pGInfo);
+			AddComponent(pB);
+			pB->LoadComponent(file, pUI);
+		}
+		else if (type == "BAT") {
+			Bulb* pB = new Bulb(pGInfo);
+			AddComponent(pB);
+			pB->LoadComponent(file, pUI);
+		}
+		else if (type == "GND") {
+			Ground* pG = new Ground(pGInfo);
+			AddComponent(pG);
+			pG->LoadComponent(file, pUI);
+		}
+		else if (type == "SWT") {
+			Switch* pS = new Switch(pGInfo);
+			AddComponent(pS);
+			pS->LoadComponent(file, pUI);
+		}
+	}
+	getline(file, text);
+	Counter = 0;
+	getline(file, text);
+	Counter = stoi(text);
+	for (int i = 0; i < Counter; i++) {
+		GraphicsInfo* pGInfo = new GraphicsInfo(2);
+		getline(file, text, ' ');
+		Component* C1 = ReturnCompbyID(stoi(text));
+
+		getline(file, text);
+		Component* C2 = ReturnCompbyID(stoi(text));
+		Connection* pc = new Connection(pGInfo, C1, C2);
+		ConnList[i]->LoadConnection(pUI);
+
+	}
+
+}
+Component* ApplicationManager::ReturnCompbyID(int id) {
+	for (int i = 0; i < CompCount; i++) {
+		if (CompList[i]->getID() == id) {
+			return CompList[i];
+		}
+	}
+	return nullptr;
+}
 //ALAA
 Connection* ApplicationManager::GetConnectionByCoordinates(int x, int y) {
 	for (int i = 0; i < ConnCount; i++) {
-		if (ConnList[i]->IsInConn(x, y, pUI) == TRUE) {
+		if (ConnList[i]->IsInConn(x, y, pUI) == true) {
 			return ConnList[i];
 		}
 		else
@@ -139,7 +227,7 @@ Connection* ApplicationManager::GetConnectionByCoordinates(int x, int y) {
 Component* ApplicationManager::GetComponentByCordinates(int x, int y)
 {
 	for (int i = 0; i < CompCount; i++) {
-		if (CompList[i]->available(x, y) == TRUE) {
+		if (CompList[i]->available(x, y) == true) {
 			return CompList[i];
 		}
 		else

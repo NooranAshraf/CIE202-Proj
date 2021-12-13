@@ -48,6 +48,8 @@ class UI
 		ITM_GROUND,
 		ITM_EDIT,
 		ITM_SIM,
+		ITM_SAVE,
+		ITM_LOAD,
 
 
 		ITM_EXIT,		//Exit item

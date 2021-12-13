@@ -22,4 +22,6 @@ public:
 	Component* getComp2();         //returns pointer to second Component
 	void selectConn();
 	void Unselect();
+	void SaveConnection(fstream& file);
+	void LoadConnection(UI* pUI);
 };

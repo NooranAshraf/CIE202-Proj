@@ -11,6 +11,7 @@ Component::Component()
 	term1_volt = term2_volt = 0;
 	term1_conn_count = term2_conn_count = 0;
 	selected = false;
+	id = st_id++;
 
 }
 
@@ -36,6 +37,23 @@ void Component::setLabel(string label) {
 string Component::getLabel() const {
 	return m_Label;
 }
+
+double Component::getResistance() const {
+	return resistance;
+}
+double Component::getVoltage() const {
+	return voltage;
+}
+int Component::getID() const {
+	return id;
+} //for the save file
+Point Component::getCoordinates() const {
+	return m_pGfxInfo->PointsList[0];
+} //for the save file
+double Component::getValue() const {
+	return value;
+}
+
 void Component::Unselect() {
 	selected = false;
 }

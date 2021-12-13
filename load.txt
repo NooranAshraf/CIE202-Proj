@@ -1,0 +1,15 @@
+6 
+RES 1 res1 1 223 193
+SWT 2 switch1 0 376 191
+RES 3 resistor2 2 533 190
+BAT 4 bat1 5 243 344
+BLB 5 bulb1 3 378 341
+GND 6 gnd1 -1 534 343
+Connections 
+6 
+1 4
+1 2
+2 3
+3 6
+6 5
+5 4
