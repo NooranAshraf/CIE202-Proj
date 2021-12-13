@@ -115,6 +115,7 @@
   <ItemGroup>
     <ClCompile Include="Actions\ActionAddBattery.cpp" />
     <ClCompile Include="Actions\ActionAddBuzzer.cpp" />
+    <ClCompile Include="Actions\ActionAddConnection.cpp" />
     <ClCompile Include="Actions\ActionAddFuse.cpp" />
     <ClCompile Include="Actions\ActionAddGround.cpp" />
     <ClCompile Include="Actions\ActionAddRes.cpp" />
@@ -174,6 +175,7 @@
   <ItemGroup>
     <ClInclude Include="Actions\ActionAddBattery.h" />
     <ClInclude Include="Actions\ActionAddBuzzer.h" />
+    <ClInclude Include="Actions\ActionAddConnection.h" />
     <ClInclude Include="Actions\ActionAddFuse.h" />
     <ClInclude Include="Actions\Action.h" />
     <ClInclude Include="Actions\ActionAddGround.h" />

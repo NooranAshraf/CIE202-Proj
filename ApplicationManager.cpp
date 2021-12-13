@@ -94,7 +94,8 @@ void ApplicationManager::UpdateInterface()
 {
 		for(int i=0; i<CompCount; i++)
 			CompList[i]->Draw(pUI);
-
+		for (int i = 0; i < ConnCount; i++)
+			ConnList[i]->Draw(pUI);
 }
 
 ////////////////////////////////////////////////////////////////////
@@ -119,12 +120,64 @@ void ApplicationManager::UnselectAll() {
 	for (int i = 0; i < CompCount; i++) {
 		CompList[i]->Unselect();
 	}
+	for (int i = 0; i < CompCount; i++) {
+		ConnList[i]->Unselect();
+	}
+}
+
+//ALAA
+Connection* ApplicationManager::GetConnectionByCoordinates(int x, int y) {
+	for (int i = 0; i < ConnCount; i++) {
+		if (ConnList[i]->IsInConn(x, y, pUI) == TRUE) {
+			return ConnList[i];
+		}
+		else
+			return nullptr;
+
+	}
+}
+Component* ApplicationManager::GetComponentByCordinates(int x, int y)
+{
+	for (int i = 0; i < CompCount; i++) {
+		if (CompList[i]->available(x, y) == TRUE) {
+			return CompList[i];
+		}
+		else
+			return nullptr;
+
+	}
+}
+
+//int ApplicationManager::getCompCount() {
+//	return CompCount;
+//}
+//
+//int ApplicationManager::getConnCount() {
+//	return ConnCount;
+//}
+//
+//Component** ApplicationManager::getComplist() {
+//	return this->CompList;
+//}
+//
+//Connection** ApplicationManager::getConnList() {
+//	return this->ConnList;
+//}
+///////////////ALAA
+void ApplicationManager::AddConnection(Connection* pConn) {
+	ConnList[ConnCount++] = pConn;
 }
 
 ApplicationManager::~ApplicationManager()
 {
-	for(int i=0; i<CompCount; i++)
+	for (int i = 0; i < CompCount; i++) {
 		delete CompList[i];
+		
+	}
+	for (int i = 0; i < ConnCount; i++) {
+		if (ConnList[i] != nullptr) {
+			delete ConnList[i];
+		}
+	}
 	delete pUI;
-	
 }

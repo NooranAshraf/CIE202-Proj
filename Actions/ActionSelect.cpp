@@ -24,11 +24,23 @@ void ActionSelect::Execute()
 	//Clear Status Bar
 	pUI->ClearStatusBar();
 
-	Component* pSelect = pManager->ReturnComp(Cx,Cy);
+	Component* pSelect = pManager->ReturnComp(Cx, Cy);
 	if (pSelect != nullptr) {
 		pSelect->Select();
 	}
-	else pManager->UnselectAll();
+	else {
+		pManager->UnselectAll();
+
+	}
+
+	Connection* pSelectCon = pManager->GetConnectionByCoordinates(Cx, Cy);
+	if(pSelectCon != nullptr){
+		pSelectCon->selectConn();
+    }
+	else {
+		pManager->UnselectAll();
+	}
+
 
 
 

@@ -376,7 +376,13 @@ void UI::DrawGround(const GraphicsInfo& r_GfxInfo, bool selected) const
 
 void UI::DrawConnection(const GraphicsInfo &r_GfxInfo, bool selected) const
 {
-	//TODO: Add code to draw connection
+	if(selected)
+		pWind->SetPen(YELLOW);
+	else
+	pWind->SetPen(BLUE);
+
+
+	pWind->DrawLine(r_GfxInfo.PointsList[0].x, r_GfxInfo.PointsList[0].y, r_GfxInfo.PointsList[1].x, r_GfxInfo.PointsList[1].y);
 }
 
 

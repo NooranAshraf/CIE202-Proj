@@ -10,11 +10,13 @@
 class ApplicationManager
 {
 
-	enum { MaxCompCount = 200 };	//Max no of Components	
+	enum { MaxCompCount = 200 };	//Max no of Components
+	enum { MaxConnCount = 200 };
 
 private:
-	int CompCount;		//Actual number of Components
+	int CompCount, ConnCount;		//Actual number of Components
 	Component* CompList[MaxCompCount];	//List of all Components (Array of pointers)
+	Connection* ConnList[MaxConnCount];
 
 	UI* pUI; //pointer to the UI
 
@@ -36,11 +38,22 @@ public:
 	//Gets a pointer to UI Object
 	UI* GetUI();
 	
+	int getCompCount() {};
 
+	int getConnCount() {};
+
+	Component** getComplist() {}
+
+	Connection** getConnList() {}
 	//Adds a new component to the list of components
 	void AddComponent(Component* pComp);
+	void AddConnection(Connection* pConn);
 
 	void UnselectAll();
+
+	//ALAA
+	Component* GetComponentByCordinates(int x, int y);
+	Connection* GetConnectionByCoordinates(int x, int y);
 
 	Component* ReturnComp(int x, int y);
 
