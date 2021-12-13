@@ -3,7 +3,7 @@
 #include "Action.h"
 #include "../Components/Component.h"
 
-//Class responsible for adding a new resistor action
+
 class ActionSelect : public Action
 {
 private:

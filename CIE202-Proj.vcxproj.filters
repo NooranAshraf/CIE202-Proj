@@ -183,6 +183,9 @@
     <ClCompile Include="Actions\ActionSelect.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
+    <ClCompile Include="Actions\ActionSwitchToDSN.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Components\Component.h">
@@ -302,6 +305,9 @@
       <Filter>Actions</Filter>
     </ClInclude>
     <ClInclude Include="Actions\ActionSelect.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Actions\ActionSwitchToDSN.h">
       <Filter>Actions</Filter>
     </ClInclude>
   </ItemGroup>

@@ -8,6 +8,7 @@
 #include"Actions\ActionAddSwitch.h"
 #include "Actions\ActionSelect.h"
 #include "Actions/ActionEdit.h"
+#include "Actions/ActionSwitchToDSN.h"
 
 
 
@@ -64,6 +65,10 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		case SELECT:
 			pAct = new ActionSelect(this);
 			break;
+		case DSN_MODE:
+			pAct = new ActionSwitchToDSN(this);
+			break;
+
 		case EDIT :
 			pAct = new ActionEdit(this);
 			break;

@@ -65,7 +65,8 @@ class UI
 		ITM_CIRC_SIM,	//Circuit Simulate menu item
 
 		//TODO:Add more items names here
-ITM_VOL,  // adds a voltmeter
+         ITM_VOL,  // adds a voltmeter
+        ITM_SWITCH_TO_DSN,
 		ITM_SIM_CNT,		//no. of simulation menu items ==> This should be the last line in this enum
 		
 	
@@ -123,6 +124,7 @@ public:
 
 	void ClearStatusBar() const;		//Clears the status bar
 	void ClearDrawingArea() const;	//Clears the drawing area
+	void ClearMenu() const; //clear the menu
 
 		
 	// Draws a resistor

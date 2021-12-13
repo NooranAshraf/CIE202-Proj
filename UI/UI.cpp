@@ -18,7 +18,9 @@ UI::UI()
 	ChangeTitle("Logic Simulator Project");
 
 	CreateDesignToolBar();	//Create the desgin toolbar
+	
 	CreateStatusBar();		//Create Status bar
+
 }
 
 
@@ -122,8 +124,10 @@ ActionType UI::GetUserAction() const
 			case ITM_FUSE: return ADD_FUSE;
 			case ITM_SWITCH:  return ADD_SWITCH;
 			case ITM_GROUND: return ADD_GROUND;
-            case ITM_EXIT:	return EXIT;	
 			case ITM_EDIT: return EDIT;
+            case ITM_EXIT:	return EXIT;
+
+			
 			
 			default: return DSN_TOOL;	//A click on empty place in desgin toolbar
 			}
@@ -138,9 +142,29 @@ ActionType UI::GetUserAction() const
 		//[3] User clicks on the status bar
 		return STATUS_BAR;
 	}
-	else 	//Application is in Simulation mode
+	else	//Application is in Simulation mode
 	{
+		if (y >= 0 && y < ToolBarHeight)
+		{
+			//Check whick Menu item was clicked
+			//==> This assumes that menu items are lined up horizontally <==
+			int ClickedItemOrder = (x / ToolItemWidth);
+			//Divide x coord of the point clicked by the menu item width (int division)
+			//if division result is 0 ==> first item is clicked, if 1 ==> 2nd item and so on
 
+			switch (ClickedItemOrder)
+			{
+			case ITM_CIRC_SIM: return START_SIM;
+			case ITM_VOL:return ADD_VOL;
+			case ITM_SWITCH_TO_DSN:return DSN_MODE;
+
+			
+
+
+
+				//A click on empty place in desgin toolbar
+			}
+		}
 		return SIM_MODE;	//This should be changed after creating the compelete simulation bar 
 	}
 
@@ -239,6 +263,7 @@ void UI::CreateSimulationToolBar()
 	string MenuItemImages[ITM_SIM_CNT];
 	MenuItemImages[ITM_CIRC_SIM] = "images\\Menu\\Start_SIM.jpg";
 	MenuItemImages[ITM_VOL] = "images\\Menu\\Voltmeter_SIM.jpg";
+	MenuItemImages[ITM_SWITCH_TO_DSN] = "images\\Menu\\SwitchToDSN.jpg";
 	for (int i = 0; i < ITM_SIM_CNT; i++) {
 		pWind->DrawImage(MenuItemImages[i], i * ToolItemWidth, 0, ToolItemWidth, ToolBarHeight);
 	}
@@ -248,6 +273,15 @@ void UI::CreateSimulationToolBar()
 	pWind->DrawLine(0, ToolBarHeight, width, ToolBarHeight);
 	//TODO: Write code to draw the simualtion toolbar (similar to that of design toolbar drawing)
 
+}
+
+//clears the menu - NOUR
+
+void UI::ClearMenu()const {
+
+		pWind->SetPen(RED, 1);
+		pWind->SetBrush(WHITE);
+		pWind->DrawRectangle(0, 0, width, ToolBarHeight);
 
 }
 

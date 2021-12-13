@@ -121,6 +121,7 @@
     <ClCompile Include="Actions\ActionAddSwitch.cpp" />
     <ClCompile Include="Actions\ActionEdit.cpp" />
     <ClCompile Include="Actions\ActionSelect.cpp" />
+    <ClCompile Include="Actions\ActionSwitchToDSN.cpp" />
     <ClCompile Include="ApplicationManager.cpp" />
     <ClCompile Include="Components\battery.cpp" />
     <ClCompile Include="CMUgraphicsLib\CMUgraphics.cpp" />
@@ -180,6 +181,7 @@
     <ClInclude Include="Actions\ActionAddSwitch.h" />
     <ClInclude Include="Actions\ActionEdit.h" />
     <ClInclude Include="Actions\ActionSelect.h" />
+    <ClInclude Include="Actions\ActionSwitchToDSN.h" />
     <ClInclude Include="ApplicationManager.h" />
     <ClInclude Include="Components\battery.h" />
     <ClInclude Include="CMUgraphicsLib\CMUgraphics.h" />
