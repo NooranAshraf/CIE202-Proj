@@ -32,12 +32,12 @@ void ActionAddSwitch::Execute()
 	int compHeight = pUI->getCompHeight();
 
 	//Check the clicked point is in th design area
-	while (((Cy - compHeight / 2) <= 50) || ((Cy + compHeight / 2) >= 600)) {
+	while (((Cy - compHeight / 2) <= pUI->getToolBarHeight()) || ((Cy + compHeight / 2) >= (pUI->getWinHeight() - pUI->getStatBarHeight()))) {
 		pUI->PrintMsg("Click in another place in the design area");
 		pUI->GetPointClicked(Cx, Cy);
 	};
 
-	while (((Cy - compWidth / 2) <= 200) || ((Cy + compWidth / 2) >= 1000)) {
+	while ((((Cx - compWidth / 2) <= 0)) || ((Cx + compWidth / 2) >= pUI->getWinWidth())) {
 		pUI->PrintMsg("Click in another place in the design area");
 		pUI->GetPointClicked(Cx, Cy);
 	};
