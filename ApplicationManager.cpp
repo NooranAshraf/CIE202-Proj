@@ -11,6 +11,7 @@
 #include "Actions/ActionSwitchToDSN.h"
 #include "Actions/ActionSave.h"
 #include "Actions/ActionLoad.h"
+#include "Actions/ActionAddModule.h"
 
 
 
@@ -80,6 +81,8 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		case EDIT :
 			pAct = new ActionEdit(this);
 			break;
+		case MODULE :
+			pAct = new ActionAddModule(this);
 		case ADD_CONNECTION:
 			//TODO: Create AddConection Action here
 			break;

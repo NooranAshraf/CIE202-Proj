@@ -125,6 +125,7 @@
     <ClCompile Include="Actions\ActionSave.cpp" />
     <ClCompile Include="Actions\ActionSelect.cpp" />
     <ClCompile Include="Actions\ActionSwitchToDSN.cpp" />
+    <ClCompile Include="Actions\ActionAddModule.cpp" />
     <ClCompile Include="ApplicationManager.cpp" />
     <ClCompile Include="Components\battery.cpp" />
     <ClCompile Include="CMUgraphicsLib\CMUgraphics.cpp" />
@@ -166,6 +167,7 @@
     <ClCompile Include="Components\Component.cpp" />
     <ClCompile Include="Components\Connection.cpp" />
     <ClCompile Include="Components\Ground.cpp" />
+    <ClCompile Include="Components\Module.cpp" />
     <ClCompile Include="Components\Resistor.cpp" />
     <ClCompile Include="Components\Bulb.cpp" />
     <ClCompile Include="Components\Fuse.cpp" />
@@ -181,6 +183,7 @@
     <ClInclude Include="Actions\ActionAddFuse.h" />
     <ClInclude Include="Actions\Action.h" />
     <ClInclude Include="Actions\ActionAddGround.h" />
+    <ClInclude Include="Actions\ActionAddModule.h" />
     <ClInclude Include="Actions\ActionAddRes.h" />
     <ClInclude Include="Actions\ActionAddSwitch.h" />
     <ClInclude Include="Actions\ActionEdit.h" />
@@ -214,6 +217,7 @@
     <ClInclude Include="Components\Connection.h" />
     <ClInclude Include="Components\Bulb.h" />
     <ClInclude Include="Components\Ground.h" />
+    <ClInclude Include="Components\Module.h" />
     <ClInclude Include="Components\Resistor.h" />
     <ClInclude Include="Components\Switch.h" />
     <ClInclude Include="Defs.H" />

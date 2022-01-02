@@ -14,6 +14,7 @@ enum ActionType
 	ADD_BUZZER,
 	ADD_GROUND,
 	ADD_CONNECTION,		//Add Wire Connection
+
 	EDIT,
 
 	START_SIM,
@@ -36,6 +37,8 @@ enum ActionType
 
 	DSN_MODE,	//Switch to Design mode
 	SIM_MODE,	//Switch to Simulatiom mode
+
+	MODULE,     // 
 
 	EXIT,		//Exit the application
 

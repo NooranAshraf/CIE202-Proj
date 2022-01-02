@@ -128,6 +128,7 @@ ActionType UI::GetUserAction() const
 			case ITM_SAVE: return SAVE;
 			case ITM_LOAD: return LOAD;
             case ITM_EXIT:	return EXIT;
+			case ITM_MODULE: return MODULE;
 
 			
 			
@@ -245,6 +246,7 @@ void UI::CreateDesignToolBar()
 	MenuItemImages[ITM_SAVE] = "images\\Menu\\save.jpg";
 	MenuItemImages[ITM_LOAD] = "images\\Menu\\load.jpg";
 	MenuItemImages[ITM_SIM] = "images\\Menu\\SwitchToSim.jpg";
+	MenuItemImages[ITM_MODULE] = "images\\Menu\\Module_Menu.jpg";
 
 	//TODO: Prepare image for each menu item and add it to the list
 
@@ -389,6 +391,18 @@ void UI::DrawConnection(const GraphicsInfo &r_GfxInfo, bool selected) const
 	pWind->DrawLine(r_GfxInfo.PointsList[0].x, r_GfxInfo.PointsList[0].y, r_GfxInfo.PointsList[1].x, r_GfxInfo.PointsList[1].y);
 }
 
+void UI::DrawModule(const GraphicsInfo& r_GfxInfo, bool selected) const
+{
+
+	string ModuleImage;
+	if (selected)
+		ModuleImage = "Images\\Comp\\Module_HI.jpg";
+	else
+		ModuleImage = "Images\\Comp\\Module.jpg";
+
+
+	pWind->DrawImage(ModuleImage, r_GfxInfo.PointsList[0].x, r_GfxInfo.PointsList[0].y, COMP_WIDTH, COMP_HEIGHT);
+}
 
 UI::~UI()
 {

@@ -50,6 +50,7 @@ class UI
 		ITM_SIM,
 		ITM_SAVE,
 		ITM_LOAD,
+		ITM_MODULE,
 
 
 		ITM_EXIT,		//Exit item
@@ -126,7 +127,7 @@ public:
 
 	void ClearStatusBar() const;		//Clears the status bar
 	void ClearDrawingArea() const;	//Clears the drawing area
-	void ClearMenu() const; //clear the menu
+	void ClearMenu() const; //clear the menu - Nour 
 
 		
 	// Draws a resistor
@@ -143,6 +144,8 @@ public:
     void DrawSwitch(const GraphicsInfo& r_GfxInfo, bool selected = false) const;
 
 	void DrawGround(const GraphicsInfo& r_GfxInfo, bool selected = false) const;
+
+	void DrawModule(const GraphicsInfo& r_GfxInfo, bool selected = false) const;
 
 	///TODO: Make similar functions for drawing all other components, connections, .. etc
 
