@@ -3,6 +3,11 @@
 Component::Component(GraphicsInfo *r_GfxInfo)
 {
 	m_pGfxInfo = r_GfxInfo;	
+	term1_volt = term2_volt = 0;
+	term1_conn_count = term2_conn_count = 0;
+	selected = false;
+	id = Component::st_id++;
+
 }
 
 Component::Component()
@@ -11,7 +16,7 @@ Component::Component()
 	term1_volt = term2_volt = 0;
 	term1_conn_count = term2_conn_count = 0;
 	selected = false;
-	id = st_id++;
+	id = Component::st_id++;
 
 }
 
@@ -29,6 +34,9 @@ bool Component::available(int x, int y) {
 	}
 	else return false;
 }
+void Component::setValue(double copiedvalue) { // for paste feature
+	value = copiedvalue;
+}
 
 void Component::setLabel(string label) {
 	m_Label = label;
@@ -37,6 +45,16 @@ void Component::setLabel(string label) {
 string Component::getLabel() const {
 	return m_Label;
 }
+
+//Get the X component center
+ int Component::getCompCenterX(UI* pUI) {
+	 return m_pGfxInfo->PointsList[0].x + pUI->getCompWidth()/2;
+ }
+
+//Get the Y component center
+ int Component::getCompCenterY(UI* pUI) {
+	 return m_pGfxInfo->PointsList[0].y + pUI->getCompHeight() / 2;
+ }
 
 double Component::getResistance() const {
 	return resistance;
@@ -54,8 +72,42 @@ double Component::getValue() const {
 	return value;
 }
 
+
 void Component::Unselect() {
 	selected = false;
+}
+//Get pointer to the term1 connection
+Connection** Component::getTerm1_Conn() {
+	return term1_connections;
+}
+
+//Get pointer to the term2 connection
+Connection** Component::getTerm2_Conn() {
+	return term2_connections;
+}
+
+//Delete the connection of a componnet
+void Component::DeleteConn(Connection* ConnToDelete) {
+	for (int i = 0; i < term1_conn_count; i++) {
+		if (term1_connections[i] == ConnToDelete) {
+			term1_connections[i] = nullptr;
+		}
+	}
+	for (int i = 0; i < term2_conn_count; i++) {
+		if (term2_connections[i] == ConnToDelete) {
+			term2_connections[i] = nullptr;
+		}
+	}
+}
+/*void Component::CompCut(UI* pUI, Component* CompCut) {
+	CompCut->CopyComp();
+	pUI->ClearDrawingArea();
+}*/
+int Component::getterm1conn()const {
+	return term1_conn_count;
+}
+int Component::getterm2conn()const {
+	return term2_conn_count;
 }
 
 

@@ -19,7 +19,6 @@ void ActionLoad::Execute()
 	pUI->PrintMsg("loading the file: Click anywhere to add");
 
 	//Get Center point of the area where the Comp should be drawn
-	// 
 	//pUI->GetPointClicked(Cx, Cy);
 	string filename = pUI->GetSrting();
 	//Clear Status Bar
@@ -40,11 +39,11 @@ void ActionLoad::Execute()
 	//Bulb* pR = new Bulb(pGInfo);
 	//pManager->AddComponent(pR);
 
-	file.open(filename);
+	file.open(filename.c_str());
 	while (!file) {
 		pUI->PrintMsg("file open failed");
-		filename = pUI->GetSrting();
-		file.open(filename);
+		string filename = pUI->GetSrting();
+		file.open(filename.c_str());
 	}
 	pManager->Load(file);
 	file.close();

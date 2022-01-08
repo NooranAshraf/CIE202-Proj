@@ -4,8 +4,8 @@
 Connection::Connection(GraphicsInfo* r_GfxInfo, Component* cmp1, Component* cmp2)
 {
 	pGfxInfo = r_GfxInfo;
-	Comp1 = cmp1;
-	Comp2 = cmp2;
+	Cmpnt1 = cmp1;
+	Cmpnt2 = cmp2;
 }
 void Connection::Draw(UI* pUI)
 {    //Pass the connection drawing info to it 
@@ -14,8 +14,8 @@ void Connection::Draw(UI* pUI)
 
 Component* Connection::getOtherComponent(Component* Cmpnt)
 {
-	Comp2= Cmpnt;
-	return Comp2;
+	Cmpnt2 = Cmpnt;
+	return Cmpnt2;
 }
 
 bool Connection::IsInConn(int x, int y, UI* pUI) {
@@ -40,14 +40,14 @@ string Connection::getLabel() {
 	return m_label;
 }
 
-Component* Connection::getComp1() {
-		return Comp1;
+Component* Connection::getCmpnt1() {
+		return Cmpnt1;
 	}
 
 
-Component* Connection::getComp2(){
+Component* Connection::getCmpnt2(){
 	
-		return Comp2;
+		return Cmpnt2;
 	}
 void Connection::selectConn() {
 	if (selected) {
@@ -60,19 +60,22 @@ void Connection::selectConn() {
 void Connection::Unselect() {
 	selected = false;
 }
-void Connection::SaveConnection(fstream& file) {
-	file << Comp1->getID() << " " << Comp2->getID() << "\n";
+void Connection::SaveConnection(ofstream& file) {
+	file << Cmpnt1->getID() << " " << Cmpnt2->getID() << "\n";
 
 }
 void Connection::LoadConnection(UI* pUI) {
-	int x1 = Comp1->getCoordinates().x;
-	int x2 = Comp2->getCoordinates().x;
-	int y1 = Comp1->getCoordinates().y;
-	int y2 = Comp2->getCoordinates().y;
+	int x1 = Cmpnt1->getCoordinates().x;
+	int x2 = Cmpnt2->getCoordinates().x;
+	int y1 = Cmpnt1->getCoordinates().y;
+	int y2 = Cmpnt2->getCoordinates().y;
 	if (x2 > x1) {
 		pGfxInfo->PointsList[1].x = x2;
 		pGfxInfo->PointsList[1].y = y2 - pUI->getCompHeight() / 2;
 		pGfxInfo->PointsList[0].x = x1 + pUI->getCompWidth();
 		pGfxInfo->PointsList[0].y = y1;
 	}
+}
+Connection::~Connection() {
+	delete pGfxInfo;
 }

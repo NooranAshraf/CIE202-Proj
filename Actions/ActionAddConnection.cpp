@@ -1,6 +1,7 @@
 #include "ActionAddConnection.h"
 #include"../ApplicationManager.h"
 
+
 ActionAddConnection::ActionAddConnection(ApplicationManager* pApp) :Action(pApp)
 {
 }
@@ -26,21 +27,21 @@ void ActionAddConnection::Execute() {
 	pUI->ClearStatusBar();
 
 	//Get pointer to the first component 
-	Component* Comp1 =pManager->ReturnComp(Cx, Cy);
-	//int x1 = Comp1->getCompCenterX(pUI), y1 = Comp1->getCompCenterY(pUI); ------ uncomment before submitting----
+	Component* Cmpnt1 =pManager->ReturnComp(Cx, Cy);
+	
+	int x1 = Cmpnt1->getCompCenterX(pUI), y1 = Cmpnt1->getCompCenterY(pUI);
 	
 	if (Cx < x1) {
 
-		pGInfo->PointsList[0].x = x1 - pUI->getCompWidth();
+		pGInfo->PointsList[0].x = x1 - pUI->getCompWidth()/2;
 		pGInfo->PointsList[0].y = y1;
 
 	}
 	else {
 
-		pGInfo->PointsList[0].x = pUI->getCompWidth();
+		pGInfo->PointsList[0].x = x1+ pUI->getCompWidth()/2;
 		pGInfo->PointsList[0].y = y1;
 	}
-
 
 
 	// Print Action Message
@@ -53,31 +54,23 @@ void ActionAddConnection::Execute() {
 	pUI->ClearStatusBar();
 
 	//Get pointer to the second component
-	Component* Comp2 = pManager->ReturnComp(Cx, Cy);
-	//int x2 = Comp2->getCompCenterX(pUI), y2 = Comp2->getCompCenterY(pUI);
+	Component* Cmpnt2 = pManager->ReturnComp(Cx2, Cy2);
+
+	
+	int x2 = Cmpnt2->getCompCenterX(pUI), y2 = Cmpnt2->getCompCenterY(pUI);
 	
 	if (Cx < x2) {
-		pGInfo->PointsList[1].x = x2 - pUI->getCompWidth();
+		pGInfo->PointsList[1].x = x2 - pUI->getCompWidth()/2;
 		pGInfo->PointsList[1].y = y2;
 	}
 	else {
-		pGInfo->PointsList[1].x = pUI->getCompWidth();
+		pGInfo->PointsList[1].x = x2 + pUI->getCompWidth()/2;
 		pGInfo->PointsList[1].y = y2;
-	};
-
-	Connection* pR = new Connection(pGInfo,Comp1,Comp2);
-	 
-	/*pManager->AddConnection(pR);
-	if (Cx > x1) {
-		Comp1->addTerm1Connection(pR);
 	}
-	else Comp1->addTerm2Connection(pR);
-
-	if (Cx2 > x2) {
-		Comp2->addTerm1Connection(pR);
-	}
-	else Comp2->addTerm2Connection(pR);*/
-	///////////////////////////////////////////////////////////////// ALAA ///////// uncomment before submitting if working
+	
+	Connection* pR = new Connection(pGInfo,Cmpnt1,Cmpnt2);
+	pManager->AddConnection(pR);
+	
 }
 
 void ActionAddConnection::Undo()

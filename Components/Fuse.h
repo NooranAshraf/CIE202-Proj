@@ -8,7 +8,10 @@ class Fuse :public Component
 		virtual void Operate();	//Calculates the volt on both terminals
 		virtual void Draw(UI*);	//Draws the fuse
 		virtual void Edit(UI*);
-		virtual void SaveComponent(fstream& file);
-		virtual void LoadComponent(fstream& file, UI* pUI);
+		virtual void CopyComp();
+		
+		virtual void PasteComp();
+		virtual void SaveComponent(ofstream& file);
+		virtual void LoadComponent(string labell, int valuee, int idd);
 };
 

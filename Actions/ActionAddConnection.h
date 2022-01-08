@@ -2,6 +2,7 @@
 
 #include "Action.h"
 #include "../Components/Connection.h"
+#include "..\Components\Component.h"
 
 //Class responsible for adding a new connection action
 class ActionAddConnection : public Action
@@ -19,5 +20,7 @@ public:
 
 	virtual void Undo();
 	virtual void Redo();
+
+
 };
 

@@ -127,8 +127,13 @@ ActionType UI::GetUserAction() const
 			case ITM_EDIT: return EDIT;
 			case ITM_SAVE: return SAVE;
 			case ITM_LOAD: return LOAD;
+			case ITM_CONNECTION:  return ADD_CONNECTION;
+                        case ITM_MODULE: return MODULE;
+                        case ITM_DELETE: return DELET;
+			case ITM_COPY: return COPY;
+			case ITM_CUT: return CUT;
+			case ITM_PASTE: return PASTE;
             case ITM_EXIT:	return EXIT;
-			case ITM_MODULE: return MODULE;
 
 			
 			
@@ -160,6 +165,8 @@ ActionType UI::GetUserAction() const
 			case ITM_CIRC_SIM: return START_SIM;
 			case ITM_VOL:return ADD_VOL;
 			case ITM_SWITCH_TO_DSN:return DSN_MODE;
+			
+             
 
 			
 
@@ -235,9 +242,9 @@ void UI::CreateDesignToolBar()
 	//First prepare List of images for each menu item
 	string MenuItemImages[ITM_DSN_CNT];
 	MenuItemImages[ITM_RES] = "images\\Menu\\Menu_Resistor.jpg";
-        MenuItemImages[ITM_BUZZER] = "images\\Menu\\Buzzer.jpg";
+    MenuItemImages[ITM_BUZZER] = "images\\Menu\\Buzzer.jpg";
 	MenuItemImages[ITM_BULB] = "images\\Menu\\Menu_Bulb.jpg";
-        MenuItemImages[ITM_SWITCH] = "images\\Menu\\Switch.jpg";
+    MenuItemImages[ITM_SWITCH] = "images\\Menu\\Switch.jpg";
 	MenuItemImages[ITM_EXIT] = "images\\Menu\\Menu_Exit.jpg";
 	MenuItemImages[ITM_BATTERY] = "images\\Menu\\Menu_Battery.jpg";
 	MenuItemImages[ITM_FUSE] = "images\\Menu\\Menu_Fuse.jpg";
@@ -245,8 +252,13 @@ void UI::CreateDesignToolBar()
 	MenuItemImages[ITM_EDIT] = "images\\Menu\\Edit.jpg";
 	MenuItemImages[ITM_SAVE] = "images\\Menu\\save.jpg";
 	MenuItemImages[ITM_LOAD] = "images\\Menu\\load.jpg";
-	MenuItemImages[ITM_SIM] = "images\\Menu\\SwitchToSim.jpg";
-	MenuItemImages[ITM_MODULE] = "images\\Menu\\Module_Menu.jpg";
+	MenuItemImages[ITM_CONNECTION] = "images\\Menu\\connection.jpg";
+        MenuItemImages[ITM_MODULE] = "images\\Menu\\Module_Menu.jpg";
+        MenuItemImages[ITM_SIM] = "images\\Menu\\SwitchToSim.jpg";
+	MenuItemImages[ITM_DELETE] = "images\\Menu\\delete.jpg";
+	MenuItemImages[ITM_COPY] = "images\\Menu\\copy.jpg";
+	MenuItemImages[ITM_CUT] = "images\\Menu\\cut.jpg";
+	MenuItemImages[ITM_PASTE] = "images\\Menu\\paste.jpg";
 
 	//TODO: Prepare image for each menu item and add it to the list
 
@@ -270,6 +282,7 @@ void UI::CreateSimulationToolBar()
 	MenuItemImages[ITM_CIRC_SIM] = "images\\Menu\\Start_SIM.jpg";
 	MenuItemImages[ITM_VOL] = "images\\Menu\\Voltmeter_SIM.jpg";
 	MenuItemImages[ITM_SWITCH_TO_DSN] = "images\\Menu\\SwitchToDSN.jpg";
+	MenuItemImages[ITM_SWITCH_TO_SIM] = "images\\Menu\\SwitchToSIM.jpg";
 	for (int i = 0; i < ITM_SIM_CNT; i++) {
 		pWind->DrawImage(MenuItemImages[i], i * ToolItemWidth, 0, ToolItemWidth, ToolBarHeight);
 	}
@@ -385,7 +398,7 @@ void UI::DrawConnection(const GraphicsInfo &r_GfxInfo, bool selected) const
 	if(selected)
 		pWind->SetPen(YELLOW);
 	else
-	pWind->SetPen(BLUE);
+	pWind->SetPen(BLACK);
 
 
 	pWind->DrawLine(r_GfxInfo.PointsList[0].x, r_GfxInfo.PointsList[0].y, r_GfxInfo.PointsList[1].x, r_GfxInfo.PointsList[1].y);

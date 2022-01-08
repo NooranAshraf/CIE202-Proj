@@ -11,7 +11,7 @@
 class Component
 {
 private:
-	string m_Label;
+	
 protected:
 	//Each component has two ending terminals (term1, term2)
 	double term1_volt, term2_volt;	//voltage at terminals 1&2
@@ -25,10 +25,15 @@ protected:
 	bool selected;
 	double voltage;
 	double resistance;
+	string m_Label;
     
 	int id; // theses two lines are for the id of the components to save in the file
 	double value;
 	string Type;
+	string CopiedLabel;
+	double CopiedValue;
+
+
 
 
 	GraphicsInfo *m_pGfxInfo;	//The parameters required to draw a component
@@ -40,17 +45,23 @@ public:
 	//void setTerm2Volt(double v);		//sets the voltage at terminal2
 	//double getTerm1Volt();				//returns the voltage at terminal1
 	//double getTerm2Volt();				//returns the voltage at terminal2
+
+	void setValue(double copiedvalue);
 	void setLabel(string label);
-	string getLabel() const;
+	string getLabel() const;  //returns the label
 	double getResistance() const;
 	double getVoltage() const;
 	int getID() const; //for the save file
 	Point getCoordinates() const; //for the save file
 	double getValue() const;
 
-	virtual void Operate() = 0;	//Calculates the output voltage according to the inputs
-	virtual void Draw(UI* ) = 0;	//for each component to Draw itself
-	virtual void Edit(UI*) = 0;   //To edit label and voltage -N
+                    
+
+    int getCompCenterX(UI*); // get the horizontal center of the component
+	int getCompCenterY(UI*);
+
+	Connection** getTerm1_Conn() ;
+	Connection** getTerm2_Conn() ;
 	
 	//virtual int GetOutPinStatus()=0;	//returns status of outputpin if LED, return -1
 	//virtual int GetInputPinStatus(int n)=0;	//returns status of Inputpin # n if SWITCH, return -1
@@ -59,8 +70,16 @@ public:
 	void Select();
 	bool available(int x, int y); //returns true if the point clicked contains this component-N
 	void Unselect();
-	virtual void SaveComponent(fstream& file) = 0;
-	virtual void LoadComponent(fstream& file, UI* pUI) = 0;
+	int getterm1conn()const;
+	int getterm2conn()const;
+	void DeleteConn(Connection* ConnToDelete);
+	virtual void CopyComp() = 0;
+	virtual void PasteComp() = 0;
+	virtual void SaveComponent(ofstream& file) = 0;
+	virtual void LoadComponent(string labell, int valuee, int idd) = 0;
+	
+	virtual void Draw(UI*)=0;
+	virtual void Edit(UI*)=0;
 
 	
 	Component();	

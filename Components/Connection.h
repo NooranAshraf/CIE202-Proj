@@ -1,12 +1,14 @@
 #pragma once
 #include "..\UI\UI.h"
 
+
+
 class Component;	//forward class declaration
 
 class Connection
 {
 	//connection connects between two compoenets
-	Component* Comp1, * Comp2;
+	Component	*Cmpnt1, *Cmpnt2;
 	GraphicsInfo* pGfxInfo;	//The parameters required to draw a connection
 	string m_label;        //Label of connection
 	bool selected;
@@ -18,10 +20,11 @@ public:
 	bool IsInConn(int x, int y, UI* pUI);    //Check if the x and y is in the connection or not
 	void setLabel(string label);        //sets the Label
 	string getLabel();                  //returns the label
-	Component* getComp1();         //returns pointer to first Component
-	Component* getComp2();         //returns pointer to second Component
+	Component* getCmpnt1();         //returns pointer to first Component
+	Component* getCmpnt2();         //returns pointer to second Component
 	void selectConn();
 	void Unselect();
-	void SaveConnection(fstream& file);
+	void SaveConnection(ofstream& file);
 	void LoadConnection(UI* pUI);
+	~Connection();
 };

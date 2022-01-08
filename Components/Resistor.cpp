@@ -28,13 +28,17 @@ void Resistor::Edit(UI* pUI) {
 	}
 	value = resistance;
 }
-void Resistor::SaveComponent(fstream& file) {
+void Resistor::SaveComponent(ofstream& file) {
 
 	file << "RES" << " " << to_string(id) << " " << getLabel() + " " << to_string(resistance) << " " << to_string(m_pGfxInfo->PointsList[0].x) << " " << to_string(m_pGfxInfo->PointsList[0].y) << "\n";
 }
-void Resistor::LoadComponent(fstream& file, UI* pUI) {
-	string text;
-	getline(file, text,' ');
+void Resistor::LoadComponent(string labell, int valuee, int idd) {
+	setLabel(labell);
+	this->value = valuee;
+	id = idd;
+
+	/*string text;
+	getline(file, text, ' ');
 	id = stoi(text);
 	getline(file, text, ' ');
 	setLabel(text);
@@ -45,9 +49,18 @@ void Resistor::LoadComponent(fstream& file, UI* pUI) {
 	getline(file, text);
 	m_pGfxInfo->PointsList[0].y = stoi(text);
 	m_pGfxInfo->PointsList[1].x = m_pGfxInfo->PointsList[0].x + pUI->getCompWidth();
-	m_pGfxInfo->PointsList[1].y = m_pGfxInfo->PointsList[0].x + pUI->getCompHeight();
+	m_pGfxInfo->PointsList[1].y = m_pGfxInfo->PointsList[0].x + pUI->getCompHeight();*/
+}
+void Resistor::CopyComp() {
+	CopiedValue = value;
+	CopiedLabel = getLabel();
+	string Type = "RES";
 }
 
+void Resistor::PasteComp() {
+	setLabel(CopiedLabel);
+	setValue(CopiedValue);
+}
 void Resistor::Operate()
 {
 

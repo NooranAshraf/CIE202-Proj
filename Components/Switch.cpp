@@ -29,24 +29,24 @@ void Switch::Edit(UI* pUI) {
 	}
 	value = resistance;
 }
-void Switch::SaveComponent(fstream& file) {
+void Switch::SaveComponent(ofstream& file) {
 	file << "SWT" << " " << to_string(id) << " " << getLabel() + " " << to_string(resistance) << " " << to_string(m_pGfxInfo->PointsList[0].x) << " " << to_string(m_pGfxInfo->PointsList[0].y) << "\n";
 }
-void Switch::LoadComponent(fstream& file, UI* pUI) {
-	string text;
-	getline(file, text, ' ');
-	id = stoi(text);
-	getline(file, text, ' ');
-	setLabel(text);
-	getline(file, text, ' ');
-	resistance = stod(text);
-	getline(file, text, ' ');
-	m_pGfxInfo->PointsList[0].x = stoi(text);
-	getline(file, text);
-	m_pGfxInfo->PointsList[0].y = stoi(text);
-	m_pGfxInfo->PointsList[1].x = m_pGfxInfo->PointsList[0].x + pUI->getCompWidth();
-	m_pGfxInfo->PointsList[1].y = m_pGfxInfo->PointsList[0].x + pUI->getCompHeight();
+void Switch::LoadComponent(string labell, int valuee, int idd) {
+	setLabel(labell);
+	this->value = valuee;
+	id = idd;
 }
+void Switch::CopyComp() {
+	CopiedValue = value;
+	CopiedLabel = getLabel();
+	string Type = "SWT";
+}
+void Switch::PasteComp() {
+	setLabel(CopiedLabel);
+	setValue(CopiedValue);
+}
+
 void Switch::Operate()
 {
 
