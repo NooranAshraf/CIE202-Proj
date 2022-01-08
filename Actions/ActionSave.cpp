@@ -40,7 +40,7 @@ void ActionSave::Execute()
 	//pManager->AddComponent(pR);
 
 	file.open(filename);
-	pManager->Save(file);
+	/*pManager->Save(file);*/
 
 	file.close();
 }

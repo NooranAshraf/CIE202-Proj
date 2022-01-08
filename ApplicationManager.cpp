@@ -18,6 +18,7 @@
 #include "Actions/ActionPaste.h"
 #include "Actions/ActionCopy.h"
 #include "Actions/ActionCut.h"
+#include "Actions/ActionSwitchToEditor.h"
 #include "Actions/ActionAddModule.h"
 
 
@@ -107,7 +108,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		case SIM_MODE:
 			pAct = new ActionSwitchToSim(this);
 			break;
-                case MODULE :
+        case MODULE :
 			pAct = new ActionAddModule(this);
                         break;
 		case DELET:
@@ -122,6 +123,11 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		case PASTE:
 			pAct = new ActionPaste(this);
 			break;
+		case EDITOR_MODE:
+			pAct = new ActionSwitchToEditor(this);
+			break;
+
+			
 
 		case EXIT:
 			///TODO: create ExitAction here

@@ -25,11 +25,21 @@ void Module::Edit(UI* pUI) {
 	}
 	value = -1;
 }
-void Module::SaveComponent(fstream& file) {
+void Module::SaveComponent(ofstream& file) {
 	//IDK how if should be saved or if it should be - will contact yasmeen -
 }
-void Module::LoadComponent(fstream& file, UI* pUI) {
+void Module::LoadComponent(string labell, int valuee, int idd){
 	//same here
+}
+void Module::CopyComp() {
+	CopiedValue = value;
+	CopiedLabel = getLabel();
+	string Type = "FUSE";
+}
+
+void Module::PasteComp() {
+	setLabel(CopiedLabel);
+	setValue(CopiedValue);
 }
 
 void Module::Operate()

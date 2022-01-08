@@ -46,16 +46,14 @@ class UI
 		ITM_FUSE,
 		ITM_SWITCH,
 		ITM_GROUND,
-		ITM_EDIT,
 		ITM_SIM,
 		ITM_SAVE,
 		ITM_LOAD,
 		ITM_CONNECTION,
-                ITM_MODULE,
-                ITM_DELETE,
-		ITM_COPY,
-		ITM_CUT,
-		ITM_PASTE,
+        ITM_MODULE,
+		ITM_EDITOR,
+		
+       
 
 
 		ITM_EXIT,		//Exit item
@@ -75,10 +73,24 @@ class UI
 		//TODO:Add more items names here
          ITM_VOL,  // adds a voltmeter
         ITM_SWITCH_TO_DSN,
-		ITM_SWITCH_TO_SIM,
+
+		
 		ITM_SIM_CNT,		//no. of simulation menu items ==> This should be the last line in this enum
 		
 	
+	};
+
+	enum EditorMenuItem
+	{
+		ITM_EDIT,
+		ITM_DELETE,
+		ITM_COPY,
+		ITM_CUT,
+		ITM_PASTE,
+		ITM_TO_DSN,
+
+
+		ITM_EDITOR_CNT,
 	};
 
 
@@ -89,7 +101,7 @@ class UI
 						wx = 15 , wy = 15,			//Window starting coordinates
 						StatusBarHeight = 50,	//Status Bar Height
 						ToolBarHeight = 80,		//Tool Bar Height (distance from top of window to bottom line of toolbar)
-						ToolItemWidth = 40,		//Width of each item in toolbar menu
+						ToolItemWidth = 80,		//Width of each item in toolbar menu
 
 						//Arbitrary values, you can change as you wish
 						COMP_WIDTH = 100,		//Component Image width
@@ -130,6 +142,8 @@ public:
 	void CreateDesignToolBar();	//Tool bar of the design mode
 	void CreateSimulationToolBar();//Tool bar of the simulation mode
 	void CreateStatusBar() const;	//Create Status bar
+	void CreateEditorToolBar();
+	
 
 	void ClearStatusBar() const;		//Clears the status bar
 	void ClearDrawingArea() const;	//Clears the drawing area
@@ -150,7 +164,8 @@ public:
     void DrawSwitch(const GraphicsInfo& r_GfxInfo, bool selected = false) const;
 
 	void DrawGround(const GraphicsInfo& r_GfxInfo, bool selected = false) const;
-        void DrawModule(const GraphicsInfo& r_GfxInfo, bool selected = false) const;
+
+    void DrawModule(const GraphicsInfo& r_GfxInfo, bool selected = false) const;
 
 	///TODO: Make similar functions for drawing all other components, connections, .. etc
 

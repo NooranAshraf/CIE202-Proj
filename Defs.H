@@ -41,6 +41,7 @@ enum ActionType
 
 	DSN_MODE,	//Switch to Design mode
 	SIM_MODE,	//Switch to Simulatiom mode
+	EDITOR_MODE,
 
 	EXIT,		//Exit the application
 
@@ -52,7 +53,8 @@ enum ActionType
 enum  MODE	//Modes of operation
 {
 	DESIGN,
-	SIMULATION
+	SIMULATION,
+	EDITOR,
 };
 
 //Maximum number of connections that can be connected to any output components
