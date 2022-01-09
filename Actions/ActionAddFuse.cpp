@@ -54,10 +54,15 @@ void ActionAddFuse::Execute()
 
 	Fuse* pR = new Fuse(pGInfo);
 	pManager->AddComponent(pR);
+	pComp = pR;
 }
 
 void ActionAddFuse::Undo()
-{}
+{
+	pManager->MinusList();
+}
 
 void ActionAddFuse::Redo()
-{}
+{
+	pManager->AddComponent(pComp);
+}

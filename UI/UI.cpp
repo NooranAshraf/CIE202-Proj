@@ -267,7 +267,6 @@ void UI::CreateDesignToolBar()
 	MenuItemImages[ITM_BATTERY] = "images\\Menu\\Menu_Battery.jpg";
 	MenuItemImages[ITM_FUSE] = "images\\Menu\\Menu_Fuse.jpg";
 	MenuItemImages[ITM_GROUND] = "images\\Menu\\Ground.jpg";
-	
 	MenuItemImages[ITM_CONNECTION] = "images\\Menu\\connection.jpg";
     MenuItemImages[ITM_MODULE] = "images\\Menu\\Module_Menu.jpg";
     MenuItemImages[ITM_SIM] = "images\\Menu\\SwitchToSim.jpg";

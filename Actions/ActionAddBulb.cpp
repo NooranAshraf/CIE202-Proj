@@ -55,11 +55,15 @@ void ActionAddBulb::Execute()
 
 	Bulb* pR = new Bulb(pGInfo);
 	pManager->AddComponent(pR);
+	pComp = pR;
 }
 
 void ActionAddBulb::Undo()
-{}
+{
+	pManager->MinusList();
+}
 
 void ActionAddBulb::Redo()
-{}
-
+{
+	pManager->AddComponent(pComp);
+}

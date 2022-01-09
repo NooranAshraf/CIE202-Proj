@@ -55,10 +55,15 @@ void ActionAddSwitch::Execute()
 	Switch* pR = new Switch(pGInfo);
 	
 	pManager->AddComponent(pR);
+	pComp = pR;
 }
 
 void ActionAddSwitch::Undo()
-{}
+{
+	pManager->MinusList();
+}
 
 void ActionAddSwitch::Redo()
-{}
+{
+	pManager->AddComponent(pComp);
+}

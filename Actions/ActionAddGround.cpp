@@ -55,11 +55,15 @@ void ActionAddGround::Execute()
 
 	Ground* pR = new Ground(pGInfo);
 	pManager->AddComponent(pR);
+	pComp = pR;
 }
 
 void ActionAddGround::Undo()
-{}
+{
+	pManager->MinusList();
+}
 
 void ActionAddGround::Redo()
-{}
-
+{
+	pManager->AddComponent(pComp);
+}

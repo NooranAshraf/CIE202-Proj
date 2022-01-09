@@ -73,10 +73,15 @@ void ActionAddModule::Execute()
 	pR->Req = 1 / ((1 / (R1 + R2)) + (1 / (R3 + R4)));
 
 	pUI->PrintMsg(to_string(pR->Req));
+	pComp = pR;
 }
 
 void ActionAddModule::Undo()
-{}
+{
+	pManager->MinusList();
+}
 
 void ActionAddModule::Redo()
-{}
+{
+	pManager->AddComponent(pComp);
+}

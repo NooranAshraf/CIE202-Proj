@@ -146,6 +146,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 	if(pAct&& ActType !=UNDO)
 	{
 		pAct->Execute();
+
 		if (ActType != REDO) {
 			stackUndo.push(pAct);
 

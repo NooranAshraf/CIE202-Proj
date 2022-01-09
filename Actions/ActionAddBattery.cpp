@@ -56,13 +56,15 @@ void ActionAddBattery::Execute()
 	pGInfo->PointsList[1].y = Cy + compHeight / 2;
 
 	battery* pR = new battery(pGInfo);
-	pManager->AddComponent(pR);
+	pComp = pR;
 }
 
 void ActionAddBattery::Undo()
 {
-	//pManager->
+	pManager->MinusList();
 }
 
 void ActionAddBattery::Redo()
-{}
+{
+	pManager->AddComponent(pComp);
+}

@@ -56,10 +56,15 @@ void ActionAddBuzzer::Execute()
 	
 	
 	pManager->AddComponent(pR);
+	pComp = pR;
 }
 
 void ActionAddBuzzer::Undo()
-{}
+{
+	pManager->MinusList();
+}
 
 void ActionAddBuzzer::Redo()
-{}
+{
+	pManager->AddComponent(pComp);
+}
