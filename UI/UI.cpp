@@ -124,11 +124,10 @@ ActionType UI::GetUserAction() const
 			case ITM_FUSE: return ADD_FUSE;
 			case ITM_SWITCH:  return ADD_SWITCH;
 			case ITM_GROUND: return ADD_GROUND;
-			case ITM_SAVE: return SAVE;
-			case ITM_LOAD: return LOAD;
 			case ITM_CONNECTION:  return ADD_CONNECTION;
             case ITM_MODULE: return MODULE;
 			case ITM_UNDO: return UNDO;
+			case ITM_REDO: return REDO;
 			case ITM_EDITOR: return EDITOR_MODE;
           
 
@@ -188,6 +187,8 @@ ActionType UI::GetUserAction() const
 			case ITM_COPY: return COPY;
 			case ITM_CUT: return CUT;
 			case ITM_PASTE: return PASTE;
+			case ITM_SAVE: return SAVE;
+			case ITM_LOAD: return LOAD;
 			case ITM_TO_DSN:return DSN_MODE;
 
 
@@ -266,13 +267,13 @@ void UI::CreateDesignToolBar()
 	MenuItemImages[ITM_BATTERY] = "images\\Menu\\Menu_Battery.jpg";
 	MenuItemImages[ITM_FUSE] = "images\\Menu\\Menu_Fuse.jpg";
 	MenuItemImages[ITM_GROUND] = "images\\Menu\\Ground.jpg";
-	MenuItemImages[ITM_SAVE] = "images\\Menu\\save.jpg";
-	MenuItemImages[ITM_LOAD] = "images\\Menu\\load.jpg";
+	
 	MenuItemImages[ITM_CONNECTION] = "images\\Menu\\connection.jpg";
     MenuItemImages[ITM_MODULE] = "images\\Menu\\Module_Menu.jpg";
     MenuItemImages[ITM_SIM] = "images\\Menu\\SwitchToSim.jpg";
 	MenuItemImages[ITM_EDITOR] = "images\\Menu\\Edit.jpg";
 	MenuItemImages[ITM_UNDO] = "images\\Menu\\Undo.jpg";
+	MenuItemImages[ITM_REDO] = "images\\Menu\\Redo.jpg";
 	
 
 	//TODO: Prepare image for each menu item and add it to the list
@@ -298,6 +299,8 @@ void UI::CreateEditorToolBar() {
 	MenuItemImages[ITM_COPY] = "images\\Menu\\copy.jpg";
 	MenuItemImages[ITM_CUT] = "images\\Menu\\cut.jpg";
 	MenuItemImages[ITM_PASTE] = "images\\Menu\\paste.jpg";
+	MenuItemImages[ITM_SAVE] = "images\\Menu\\save.jpg";
+	MenuItemImages[ITM_LOAD] = "images\\Menu\\load.jpg";
 	MenuItemImages[ITM_TO_DSN] = "images\\Menu\\SwitchToDSN.jpg";
 	
 

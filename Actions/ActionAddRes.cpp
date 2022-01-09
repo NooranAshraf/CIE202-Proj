@@ -64,5 +64,6 @@ void ActionAddRes::Undo()
 
 void ActionAddRes::Redo()
 {
+	pManager->AddComponent(pComp);
 }
 

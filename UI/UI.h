@@ -47,11 +47,10 @@ class UI
 		ITM_SWITCH,
 		ITM_GROUND,
 		ITM_SIM,
-		ITM_SAVE,
-		ITM_LOAD,
 		ITM_CONNECTION,
 		ITM_MODULE,
 		ITM_UNDO,
+		ITM_REDO,
 		ITM_EDITOR,
 		
        
@@ -88,6 +87,8 @@ class UI
 		ITM_COPY,
 		ITM_CUT,
 		ITM_PASTE,
+		ITM_SAVE,
+		ITM_LOAD,
 		ITM_TO_DSN,
 
 

@@ -21,6 +21,7 @@
 #include "Actions/ActionSwitchToEditor.h"
 #include "Actions/ActionAddModule.h"
 #include "Actions/ActionUndo.h"
+#include "Actions/ActionRedo.h"
 
 
 
@@ -132,6 +133,9 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		case UNDO :
 			pAct = new ActionUndo(this);
 			break;
+		case REDO:
+			pAct = new ActionRedo(this);
+			break;
 
 			
 
@@ -142,11 +146,12 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 	if(pAct&& ActType !=UNDO)
 	{
 		pAct->Execute();
-		stackUndo.push(pAct);
-		
-		/*delete pAct;
-		pAct = nullptr;*/
+		if (ActType != REDO) {
+			stackUndo.push(pAct);
+
+		}
 	}
+	if(pAct&& ActType !=REDO)
 	if (ActType == UNDO) {
 		pAct->Execute();
 		delete pAct;
@@ -156,11 +161,22 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 
 void ApplicationManager::Undo()
 {
-	Action* pUndo = stackUndo.top();
-	stackUndo.pop();
-	pUndo->Undo();
-	stackRedo.push(pUndo);
+	if (!stackUndo.empty()) {
+		Action* LastAction = stackUndo.top();
+		stackUndo.pop();
+		LastAction->Undo();
+		stackRedo.push(LastAction);
+	}
 	
+}
+
+void ApplicationManager::Redo() {
+	if (!stackRedo.empty()) {
+		Action* LastAction = stackRedo.top();
+		stackRedo.pop();
+		LastAction->Redo();
+		stackUndo.push(LastAction);
+	}
 }
 
 void ApplicationManager::UpdateInterface()
