@@ -54,11 +54,15 @@ void ActionAddRes::Execute()
 	 
 	Resistor* pR = new Resistor(pGInfo);
 	pManager->AddComponent(pR);
+	pComp = pR;
 }
 
 void ActionAddRes::Undo()
-{}
+{
+	pManager->MinusList();
+}
 
 void ActionAddRes::Redo()
-{}
+{
+}
 

@@ -50,7 +50,8 @@ class UI
 		ITM_SAVE,
 		ITM_LOAD,
 		ITM_CONNECTION,
-        ITM_MODULE,
+		ITM_MODULE,
+		ITM_UNDO,
 		ITM_EDITOR,
 		
        

@@ -20,6 +20,8 @@
 #include "Actions/ActionCut.h"
 #include "Actions/ActionSwitchToEditor.h"
 #include "Actions/ActionAddModule.h"
+#include "Actions/ActionUndo.h"
+
 
 
 
@@ -29,6 +31,7 @@ ApplicationManager::ApplicationManager()
 {
 	CompCount = 0;
 	ConnCount = 0;
+	
 
 	for(int i=0; i<MaxCompCount; i++)
 		CompList[i] = nullptr;
@@ -126,6 +129,9 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		case EDITOR_MODE:
 			pAct = new ActionSwitchToEditor(this);
 			break;
+		case UNDO :
+			pAct = new ActionUndo(this);
+			break;
 
 			
 
@@ -133,14 +139,29 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			///TODO: create ExitAction here
 			break;
 	}
-	if(pAct)
+	if(pAct&& ActType !=UNDO)
 	{
 		pAct->Execute();
+		stackUndo.push(pAct);
+		
+		/*delete pAct;
+		pAct = nullptr;*/
+	}
+	if (ActType == UNDO) {
+		pAct->Execute();
 		delete pAct;
-		pAct = nullptr;
 	}
 }
 ////////////////////////////////////////////////////////////////////
+
+void ApplicationManager::Undo()
+{
+	Action* pUndo = stackUndo.top();
+	stackUndo.pop();
+	pUndo->Undo();
+	stackRedo.push(pUndo);
+	
+}
 
 void ApplicationManager::UpdateInterface()
 {
@@ -380,10 +401,16 @@ Component* ApplicationManager::GetComponentByCordinates(int x, int y)
 	}
 }
 
+void ApplicationManager::MinusList() {
+	CompList[CompCount] = nullptr;
+	CompCount--;
+}
+
 ApplicationManager::~ApplicationManager()
 {
 	for (int i = 0; i < CompCount; i++) {
-		delete CompList[i];
+		if(CompList[CompCount])
+			delete CompList[i];
 		
 	}
 	for (int i = 0; i < ConnCount; i++) {

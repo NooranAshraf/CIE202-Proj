@@ -60,7 +60,9 @@ void ActionAddBattery::Execute()
 }
 
 void ActionAddBattery::Undo()
-{}
+{
+	//pManager->
+}
 
 void ActionAddBattery::Redo()
 {}

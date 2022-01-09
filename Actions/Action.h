@@ -2,15 +2,22 @@
 #define _ACTION_H
 
 class ApplicationManager; //forward class declaration
-
+class Component;
+class Connection;
 
 //Base class for all possible actions (abstract class)
 class Action
 {
 protected:
 	ApplicationManager *pManager;	//Actions needs AppMngr to do their job
+	Component* pComp;
+	Connection* pCon;
+
 public:
-	Action(ApplicationManager *pApp) { pManager = pApp; }	//constructor
+	Action(ApplicationManager *pApp) { pManager = pApp;
+	pComp = nullptr;
+	pCon = nullptr;
+	}	//constructor
 	
 
 	//Execute action (code depends on action type)
@@ -21,8 +28,14 @@ public:
 
 	//To redo this action (code depends on action type)
 	virtual void Redo()=0;
+	~Action() {
+		if(pComp)
+			delete pComp;
+		if(pCon)
+			delete pCon;
+	}
+
 
 };
 
-//please work
 #endif

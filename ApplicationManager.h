@@ -6,7 +6,7 @@
 #include "Actions\Action.h"
 #include "Components/Component.h"
 #include "Components/Connection.h"
-
+#include <stack>
 
 //Main class that manages everything in the application.
 class ApplicationManager
@@ -20,11 +20,13 @@ private:
 	Component* CompList[MaxCompCount];	//List of all Components (Array of pointers)
 	Connection* ConnList[MaxConnCount];	//List of all Connections (Array of pointers)
 	UI* pUI; //pointer to the UI
-	
+	stack<Action* > stackUndo;
+	stack<Action*> stackRedo;
 
 protected:
 	Component* CompCopied;
 	Component* CompCut;
+	
 
 public:	
 	ApplicationManager(); //constructor
@@ -44,6 +46,8 @@ public:
 
 	int getConnCount() {};
 
+
+
 	Component** getComplist() {}
 
 	Connection** getConnList() {}
@@ -62,6 +66,8 @@ public:
 	void Copy(Component* Cp);
 	void Paste(Component* Pp, GraphicsInfo* pGInfo);
 	void Cut(Component* Cp, int x, int y);
+	void Undo();
+	void MinusList();
 
 	Component* getCompCopied()const;
 	Component* getCompCut()const;

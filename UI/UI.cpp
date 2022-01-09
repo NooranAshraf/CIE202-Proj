@@ -128,6 +128,7 @@ ActionType UI::GetUserAction() const
 			case ITM_LOAD: return LOAD;
 			case ITM_CONNECTION:  return ADD_CONNECTION;
             case ITM_MODULE: return MODULE;
+			case ITM_UNDO: return UNDO;
 			case ITM_EDITOR: return EDITOR_MODE;
           
 
@@ -271,6 +272,7 @@ void UI::CreateDesignToolBar()
     MenuItemImages[ITM_MODULE] = "images\\Menu\\Module_Menu.jpg";
     MenuItemImages[ITM_SIM] = "images\\Menu\\SwitchToSim.jpg";
 	MenuItemImages[ITM_EDITOR] = "images\\Menu\\Edit.jpg";
+	MenuItemImages[ITM_UNDO] = "images\\Menu\\Undo.jpg";
 	
 
 	//TODO: Prepare image for each menu item and add it to the list

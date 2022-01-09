@@ -219,6 +219,9 @@
     <ClCompile Include="Actions\ActionSwitchToEditor.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
+    <ClCompile Include="Actions\ActionUndo.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Components\Component.h">
@@ -374,6 +377,9 @@
       <Filter>Actions</Filter>
     </ClInclude>
     <ClInclude Include="Actions\ActionSwitchToEditor.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Actions\ActionUndo.h">
       <Filter>Actions</Filter>
     </ClInclude>
   </ItemGroup>
