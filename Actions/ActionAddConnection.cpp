@@ -70,7 +70,7 @@ void ActionAddConnection::Execute() {
 	
 	Connection* pR = new Connection(pGInfo,Cmpnt1,Cmpnt2);
 	pManager->AddConnection(pR);
-	
+	pCon = pR;
 }
 
 void ActionAddConnection::Undo()
