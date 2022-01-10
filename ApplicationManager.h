@@ -68,6 +68,7 @@ public:
 	void Cut(Component* Cp, int x, int y);
 	void Undo();
 	void MinusList();
+	void MinusConn();
 	void Redo();
 
 	Component* getCompCopied()const;

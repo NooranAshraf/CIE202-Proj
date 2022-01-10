@@ -71,7 +71,9 @@ void ActionCopy::Execute()
 }
 
 void ActionCopy::Undo()
-{}
+{
+
+}
 
 void ActionCopy::Redo()
 {}

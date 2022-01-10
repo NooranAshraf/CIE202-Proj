@@ -74,7 +74,11 @@ void ActionAddConnection::Execute() {
 }
 
 void ActionAddConnection::Undo()
-{}
+{
+	pManager->MinusConn();
+}
 
 void ActionAddConnection::Redo()
-{}
+{
+	pManager->AddConnection(pCon);
+}

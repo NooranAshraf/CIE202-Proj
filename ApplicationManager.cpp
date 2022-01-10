@@ -143,19 +143,15 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			///TODO: create ExitAction here
 			break;
 	}
-	if(pAct&& ActType !=UNDO)
+	if(pAct)
 	{
 		pAct->Execute();
 
-		if (ActType != REDO) {
+		if (ActType != REDO && ActType != SELECT && ActType != UNDO && ActType != DSN_MODE && ActType != SIM_MODE && ActType != COPY) {
 			stackUndo.push(pAct);
 
 		}
-	}
-	if(pAct&& ActType !=REDO)
-	if (ActType == UNDO) {
-		pAct->Execute();
-		delete pAct;
+		else delete pAct;
 	}
 }
 ////////////////////////////////////////////////////////////////////
@@ -421,6 +417,10 @@ Component* ApplicationManager::GetComponentByCordinates(int x, int y)
 void ApplicationManager::MinusList() {
 	CompList[CompCount] = nullptr;
 	CompCount--;
+}
+void ApplicationManager::MinusConn() {
+	ConnList[ConnCount] = nullptr;
+	ConnCount--;
 }
 
 ApplicationManager::~ApplicationManager()

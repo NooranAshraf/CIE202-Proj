@@ -56,6 +56,8 @@ void ActionAddBattery::Execute()
 	pGInfo->PointsList[1].y = Cy + compHeight / 2;
 
 	battery* pR = new battery(pGInfo);
+	pManager->AddComponent(pR);
+
 	pComp = pR;
 }
 

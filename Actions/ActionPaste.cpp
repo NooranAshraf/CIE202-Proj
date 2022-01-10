@@ -59,7 +59,11 @@ void ActionPaste::Execute()
 }
 
 void ActionPaste::Undo()
-{}
+{
+	pManager->MinusList();
+}
 
 void ActionPaste::Redo()
-{}
+{
+	pManager->AddComponent(pComp);
+}

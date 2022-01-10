@@ -437,7 +437,7 @@ void UI::DrawGround(const GraphicsInfo& r_GfxInfo, bool selected) const
 void UI::DrawConnection(const GraphicsInfo &r_GfxInfo, bool selected) const
 {
 	if(selected)
-		pWind->SetPen(YELLOW);
+		pWind->SetPen(RED);
 	else
 	pWind->SetPen(BLACK);
 

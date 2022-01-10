@@ -82,7 +82,11 @@ void ActionDelete::Execute()
 }
 
 void ActionDelete::Undo()
-{}
+{
+	pManager->AddComponent(pComp);
+}
 
 void ActionDelete::Redo()
-{}
+{
+	pManager->MinusList();
+}
