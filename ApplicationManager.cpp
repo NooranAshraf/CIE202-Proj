@@ -147,7 +147,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 	{
 		pAct->Execute();
 
-		if (ActType != REDO && ActType != SELECT && ActType != UNDO && ActType != DSN_MODE && ActType != SIM_MODE && ActType != COPY) {
+		if (ActType != REDO && ActType != SELECT && ActType != UNDO && ActType != DSN_MODE && ActType != SIM_MODE && ActType != COPY && ActType != CUT && ActType != SAVE && ActType != LOAD) {
 			stackUndo.push(pAct);
 
 		}

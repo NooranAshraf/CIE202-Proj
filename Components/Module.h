@@ -16,4 +16,6 @@ public:
 	virtual void SaveComponent(ofstream& file);
 	virtual void LoadComponent(string labell, int valuee, int idd);
     double Req;
+
+	
 };

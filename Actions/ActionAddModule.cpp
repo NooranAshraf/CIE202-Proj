@@ -70,7 +70,7 @@ void ActionAddModule::Execute()
 
 	pUI->ClearStatusBar();
 
-	pR->Req = 1 / ((1 / (R1 + R2)) + (1 / (R3 + R4)));
+	pR->setValue ( 1 / ((1 / (R1 + R2)) + (1 / (R3 + R4))));
 
 	pUI->PrintMsg(to_string(pR->Req));
 	pComp = pR;

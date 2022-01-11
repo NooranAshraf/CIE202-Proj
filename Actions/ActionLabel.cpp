@@ -36,11 +36,15 @@ void ActionLabel::Execute()
 	//Check if the pointer to the component is nullptr or not
 	if (SelectedComponent != nullptr) {
 
+		pComp = SelectedComponent;
+
 		//Print Message to label the component
 		pUI->PrintMsg("Enter the label of the Component");
 
 		//Get the label of the component
-		string newlabel = pUI->GetSrting();
+		 newlabel = pUI->GetSrting();
+
+		OldLabel = SelectedComponent->getLabel();
 
 		//set the label of the component
 		SelectedComponent->setLabel(newlabel);
@@ -48,13 +52,13 @@ void ActionLabel::Execute()
 
 	//Check if the pointer to the connection is nullptr or not
 	else if (SelectedConnection != nullptr) {
-
+		pCon = SelectedConnection;
 		//Print Message to label the connection
 		pUI->PrintMsg("Enter the label of the Connection:");
 
 		//Get the label of the connection
-		string newlabel = pUI->GetSrting();
-
+		newlabel = pUI->GetSrting();
+		OldLabel = SelectedConnection->getLabel();
 		//set the label of the connection
 		SelectedConnection->setLabel(newlabel);
 	}
@@ -64,13 +68,31 @@ void ActionLabel::Execute()
 
 	//Clear the Status Bar
 	pUI->ClearStatusBar();
+
+
 }
 
 
 
 
 void ActionLabel::Undo()
-{}
+{
+	if (pComp != nullptr) {
+
+		pComp->setLabel(OldLabel);
+	}
+	else if (pCon != nullptr) {
+		pCon->setLabel(OldLabel);
+	}
+}
 
 void ActionLabel::Redo()
-{}
+{
+	if (pComp != nullptr) {
+
+		pComp->setLabel(newlabel);
+	}
+	else if (pCon != nullptr) {
+		pCon->setLabel(newlabel);
+	}
+}

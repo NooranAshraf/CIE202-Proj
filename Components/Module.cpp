@@ -34,7 +34,7 @@ void Module::LoadComponent(string labell, int valuee, int idd){
 void Module::CopyComp() {
 	CopiedValue = value;
 	CopiedLabel = getLabel();
-	string Type = "FUSE";
+	string Type = "MODULE";
 }
 
 void Module::PasteComp() {

@@ -7,6 +7,7 @@ ActionCut::ActionCut(ApplicationManager* pApp) :Action(pApp)
 
 ActionCut::~ActionCut(void)
 {
+	delete ComptoCut;
 }
 
 void ActionCut::Execute()
@@ -25,13 +26,14 @@ void ActionCut::Execute()
 
 	
 
-	Component* ComptoCut = pManager->ReturnComp(Cx, Cy);
+	ComptoCut = pManager->ReturnComp(Cx, Cy);
 	
 
 	if (ComptoCut != nullptr) {
-		pManager->Cut(ComptoCut, Cx,Cy);
+		pManager->Cut(ComptoCut);
 		ComptoCut->CopyComp();
-		pUI->ClearDrawingArea();
+		//pManager->DeleteComp(Cx, Cy);
+		
 		pUI->ClearStatusBar();
 	}
 	else {
@@ -42,41 +44,7 @@ void ActionCut::Execute()
 		pUI->CreateStatusBar();
 	}
 
-	//Component* pcut = pManager->ReturnComp(Cx, Cy);
-	//if (pcut != nullptr) {
-		//pcut->Cut();
-	//}
-
-
-	//GraphicsInfo* pGInfo = new GraphicsInfo(2); //Gfx info to be used to construct the Comp
-
-	//Calculate the rectangle Corners
-	//int compWidth = pUI->getCompWidth();
-	//int compHeight = pUI->getCompHeight();
-
-	//Check the clicked point is in th design area
-	/*while (((Cy - compHeight / 2) <= pUI->getToolBarHeight()) || ((Cy + compHeight / 2) >= (pUI->getWinHeight() - pUI->getStatBarHeight()))) {
-		pUI->PrintMsg("Click in another place in the design area");
-		pUI->GetPointClicked(Cx, Cy);
-	};
-
-	while ((((Cx - compWidth / 2) <= 0)) || ((Cx + compWidth / 2) >= pUI->getWinWidth())) {
-		pUI->PrintMsg("Click in another place in the design area");
-		pUI->GetPointClicked(Cx, Cy);
-	};*/
-
-	//Clear Status Bar
-	//pUI->ClearStatusBar();
-
-	//Set the Graphics info
-
-	//pGInfo->PointsList[0].x = Cx - compWidth / 2;
-	//pGInfo->PointsList[0].y = Cy - compHeight / 2;
-	//pGInfo->PointsList[1].x = Cx + compWidth / 2;
-	//pGInfo->PointsList[1].y = Cy + compHeight / 2;
-
-	//Resistor* pR = new Resistor(pGInfo);
-	//pManager->AddComponent(pR);
+	
 }
 
 void ActionCut::Undo()

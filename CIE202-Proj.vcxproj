@@ -124,6 +124,7 @@
     <ClCompile Include="Actions\ActionCut.cpp" />
     <ClCompile Include="Actions\ActionDelete.cpp" />
     <ClCompile Include="Actions\ActionEdit.cpp" />
+    <ClCompile Include="Actions\ActionLabel.cpp" />
     <ClCompile Include="Actions\ActionLoad.cpp" />
     <ClCompile Include="Actions\ActionPaste.cpp" />
     <ClCompile Include="Actions\ActionRedo.cpp" />
@@ -198,6 +199,7 @@
     <ClInclude Include="Actions\ActionCut.h" />
     <ClInclude Include="Actions\ActionDelete.h" />
     <ClInclude Include="Actions\ActionEdit.h" />
+    <ClInclude Include="Actions\ActionLabel.h" />
     <ClInclude Include="Actions\ActionLoad.h" />
     <ClInclude Include="Actions\ActionPaste.h" />
     <ClInclude Include="Actions\ActionRedo.h" />

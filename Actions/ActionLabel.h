@@ -7,6 +7,8 @@ class ActionLabel : public Action
 private:
 	//Parameters for rectangular area to be occupied by the comp
 	int Cx, Cy;	//Center point of the comp
+	string OldLabel;
+	string newlabel;
 public:
 	ActionLabel(ApplicationManager* pApp);
 	virtual ~ActionLabel(void);
@@ -16,4 +18,5 @@ public:
 
 	virtual void Undo();
 	virtual void Redo();
+
 };
