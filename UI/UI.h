@@ -179,6 +179,9 @@ public:
 	
 	void PrintMsg(string msg) const;	//Print a message on Status bar
 
+	void FindClick(int& x, int& y);
+	buttonstate getState(button one, int& x, int& y);
+
 	~UI();
 };
 

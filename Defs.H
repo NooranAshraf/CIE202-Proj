@@ -37,6 +37,7 @@ enum ActionType
 	COPY,
 	CUT,
 	PASTE,
+	SAVE_MODULE,
 
 	UNDO,		//Undo the last Action preformed
 	REDO,		//Redo the last Action canceled

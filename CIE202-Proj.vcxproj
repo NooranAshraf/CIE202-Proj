@@ -127,10 +127,12 @@
     <ClCompile Include="Actions\ActionEdit.cpp" />
     <ClCompile Include="Actions\ActionLabel.cpp" />
     <ClCompile Include="Actions\ActionLoad.cpp" />
+    <ClCompile Include="Actions\ActionMove.cpp" />
     <ClCompile Include="Actions\ActionMultipleDelete.cpp" />
     <ClCompile Include="Actions\ActionPaste.cpp" />
     <ClCompile Include="Actions\ActionRedo.cpp" />
     <ClCompile Include="Actions\ActionSave.cpp" />
+    <ClCompile Include="Actions\ActionSaveModule.cpp" />
     <ClCompile Include="Actions\ActionSelect.cpp" />
     <ClCompile Include="Actions\ActionSwitchToDSN.cpp" />
     <ClCompile Include="Actions\ActionAddModule.cpp" />
@@ -205,10 +207,12 @@
     <ClInclude Include="Actions\ActionEdit.h" />
     <ClInclude Include="Actions\ActionLabel.h" />
     <ClInclude Include="Actions\ActionLoad.h" />
+    <ClInclude Include="Actions\ActionMove.h" />
     <ClInclude Include="Actions\ActionMultipleDelete.h" />
     <ClInclude Include="Actions\ActionPaste.h" />
     <ClInclude Include="Actions\ActionRedo.h" />
     <ClInclude Include="Actions\ActionSave.h" />
+    <ClInclude Include="Actions\ActionSaveModul.h" />
     <ClInclude Include="Actions\ActionSelect.h" />
     <ClInclude Include="Actions\ActionSwitchToDSN.h" />
     <ClInclude Include="Actions\ActionSwitchToEditor.h" />

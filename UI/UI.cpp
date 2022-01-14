@@ -465,6 +465,17 @@ void UI::DrawModule(const GraphicsInfo& r_GfxInfo, bool selected) const
 	pWind->DrawImage(ModuleImage, r_GfxInfo.PointsList[0].x, r_GfxInfo.PointsList[0].y, COMP_WIDTH, COMP_HEIGHT);
 }
 
+void UI::FindClick(int& x, int& y) {
+	pWind->GetMouseCoord(x, y);
+
+}
+
+buttonstate UI::getState(button one, int& x, int& y) {
+
+	return pWind->GetButtonState(one, x, y);
+};
+
+
 UI::~UI()
 {
 	delete pWind;

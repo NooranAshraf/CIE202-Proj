@@ -26,7 +26,7 @@ void Module::Edit(UI* pUI) {
 	value = -1;
 }
 void Module::SaveComponent(ofstream& file) {
-	//IDK how if should be saved or if it should be - will contact yasmeen -
+	file << "RES" << " " << to_string(id) << " " << getLabel() + " " << to_string(resistance) << " " << to_string(m_pGfxInfo->PointsList[0].x) << " " << to_string(m_pGfxInfo->PointsList[0].y) << "\n";
 }
 void Module::LoadComponent(string labell, int valuee, int idd){
 	//same here

@@ -25,6 +25,7 @@
 #include "Actions/ActionCurrent.h"
 #include "Actions/ActionVoltage.h"
 #include "Actions\ActionMultipleDelete.h"
+#include"Actions/ActionSaveModul.h"
 
 
 
@@ -144,6 +145,8 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		case VOLTAGE:
 			pAct = new ActionVoltage(this);
 			break;
+		case SAVE_MODULE:
+			pAct = new ActionSaveModule(this);
 			
 
 		case EXIT:
@@ -516,6 +519,39 @@ void ApplicationManager::CalculateVoltages(double current) {
 		CompList[i]->setTerm1Volt(Voltage);
 	}
 
+}
+
+bool ApplicationManager::ValidateModule() {
+	if (!ValidateCircuit()) {
+		pUI->PrintMsg("Not a valid module ");
+		return false;
+	}
+	else {
+		for (int i = 0; i < CompCount; i++) {
+			if (!dynamic_cast<Resistor*>(CompList[i])) {
+				return false;
+			}
+			else {
+				return true;
+			}
+		}
+	}
+	
+
+
+}
+
+void ApplicationManager::SaveModule(ofstream& file) {
+	if (!ValidateModule()) {
+		pUI->PrintMsg("Not a valid module ");
+	}
+	else {
+		file << std::to_string(CompCount) + "\n";
+
+		for (int i = 0; i < CompCount; i++) {
+			CompList[i]->SaveComponent(file);
+		}
+	}
 }
 
 ApplicationManager::~ApplicationManager()

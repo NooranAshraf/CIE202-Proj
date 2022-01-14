@@ -71,6 +71,8 @@ public:
 	void MinusList();
 	void MinusConn();
 	void Redo();
+	bool ValidateModule();
+	void	SaveModule(ofstream& file);
 
 	Component* getCompCopied()const;
 	Component* getCompCut()const;
