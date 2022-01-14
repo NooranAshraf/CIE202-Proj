@@ -120,14 +120,15 @@ ActionType UI::GetUserAction() const
 			case ITM_RES:	return ADD_RESISTOR;
 			case ITM_BULB: return ADD_BULB;
 			case ITM_BATTERY: return ADD_BATTERY;
-            case ITM_BUZZER:  return ADD_BUZZER;
+			case ITM_BUZZER:  return ADD_BUZZER;
 			case ITM_FUSE: return ADD_FUSE;
 			case ITM_SWITCH:  return ADD_SWITCH;
 			case ITM_GROUND: return ADD_GROUND;
 			case ITM_CONNECTION:  return ADD_CONNECTION;
-            case ITM_MODULE: return MODULE;
+			case ITM_MODULE: return MODULE;
 			case ITM_UNDO: return UNDO;
 			case ITM_REDO: return REDO;
+			case ITM_SIM: return SIM_MODE;
 			case ITM_EDITOR: return EDITOR_MODE;
           
 
@@ -161,7 +162,8 @@ ActionType UI::GetUserAction() const
 			switch (ClickedItemOrder)
 			{
 			case ITM_CIRC_SIM: return START_SIM;
-			case ITM_VOL:return ADD_VOL;
+			case ITM_VOLTAGE:return VOLTAGE;
+			case ITM_AMMETER:return CURRENT;
 			case ITM_SWITCH_TO_DSN:return DSN_MODE;
 			
              
@@ -182,8 +184,10 @@ ActionType UI::GetUserAction() const
 
 			switch (ClickedItemOrder) 
 			{
+			case ITM_LABEL: return ADD_Label;
 			case ITM_EDIT: return EDIT;
 			case ITM_DELETE:return DELET;
+			case ITM_MULTIPLE_DELETE:return MultDel;
 			case ITM_COPY: return COPY;
 			case ITM_CUT: return CUT;
 			case ITM_PASTE: return PASTE;
@@ -260,17 +264,18 @@ void UI::CreateDesignToolBar()
 	//First prepare List of images for each menu item
 	string MenuItemImages[ITM_DSN_CNT];
 	MenuItemImages[ITM_RES] = "images\\Menu\\Menu_Resistor.jpg";
-    MenuItemImages[ITM_BUZZER] = "images\\Menu\\Buzzer.jpg";
+	MenuItemImages[ITM_BUZZER] = "images\\Menu\\Menu_Buzzer.jpg";
 	MenuItemImages[ITM_BULB] = "images\\Menu\\Menu_Bulb.jpg";
-    MenuItemImages[ITM_SWITCH] = "images\\Menu\\Switch.jpg";
+	MenuItemImages[ITM_SWITCH] = "images\\Menu\\Menu_Switch.jpg";
 	MenuItemImages[ITM_EXIT] = "images\\Menu\\Menu_Exit.jpg";
 	MenuItemImages[ITM_BATTERY] = "images\\Menu\\Menu_Battery.jpg";
 	MenuItemImages[ITM_FUSE] = "images\\Menu\\Menu_Fuse.jpg";
-	MenuItemImages[ITM_GROUND] = "images\\Menu\\Ground.jpg";
+	MenuItemImages[ITM_GROUND] = "images\\Menu\\Menu_Ground.jpg";
 	MenuItemImages[ITM_CONNECTION] = "images\\Menu\\connection.jpg";
-    MenuItemImages[ITM_MODULE] = "images\\Menu\\Module_Menu.jpg";
-    MenuItemImages[ITM_SIM] = "images\\Menu\\SwitchToSim.jpg";
+	MenuItemImages[ITM_MODULE] = "images\\Menu\\Module_Menu.jpg";
+
 	MenuItemImages[ITM_EDITOR] = "images\\Menu\\Edit.jpg";
+	MenuItemImages[ITM_SIM] = "images\\Menu\\SwitchToSim.jpg";
 	MenuItemImages[ITM_UNDO] = "images\\Menu\\Undo.jpg";
 	MenuItemImages[ITM_REDO] = "images\\Menu\\Redo.jpg";
 	
@@ -293,8 +298,10 @@ void UI::CreateEditorToolBar() {
 	AppMode = EDITOR;
 
 	string MenuItemImages[ITM_EDITOR_CNT];
+	MenuItemImages[ITM_LABEL] = "images\\Menu\\Label.jpg";
 	MenuItemImages[ITM_EDIT] = "images\\Menu\\Edit.jpg";
-    MenuItemImages[ITM_DELETE] = "images\\Menu\\delete.jpg";
+	MenuItemImages[ITM_MULTIPLE_DELETE] = "images\\Menu\\MultiDelete.jpg";
+	MenuItemImages[ITM_DELETE] = "images\\Menu\\delete.jpg";
 	MenuItemImages[ITM_COPY] = "images\\Menu\\copy.jpg";
 	MenuItemImages[ITM_CUT] = "images\\Menu\\cut.jpg";
 	MenuItemImages[ITM_PASTE] = "images\\Menu\\paste.jpg";
@@ -318,10 +325,10 @@ void UI::CreateEditorToolBar() {
 void UI::CreateSimulationToolBar()
 {
 	AppMode = SIMULATION;	//Simulation Mode
-
 	string MenuItemImages[ITM_SIM_CNT];
 	MenuItemImages[ITM_CIRC_SIM] = "images\\Menu\\Start_SIM.jpg";
-	MenuItemImages[ITM_VOL] = "images\\Menu\\Voltmeter_SIM.jpg";
+	MenuItemImages[ITM_VOLTAGE] = "images\\Menu\\Voltmeter_SIM.jpg";
+	MenuItemImages[ITM_AMMETER] = "images\\Menu\\Ammeter_SIM.jpg";
 	MenuItemImages[ITM_SWITCH_TO_DSN] = "images\\Menu\\SwitchToDSN.jpg";
 	
 	for (int i = 0; i < ITM_SIM_CNT; i++) {

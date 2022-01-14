@@ -41,14 +41,14 @@ string Connection::getLabel() {
 }
 
 Component* Connection::getCmpnt1() {
-		return Cmpnt1;
-	}
+	return Cmpnt1;
+}
 
 
-Component* Connection::getCmpnt2(){
-	
-		return Cmpnt2;
-	}
+Component* Connection::getCmpnt2() {
+
+	return Cmpnt2;
+}
 void Connection::selectConn() {
 	if (selected) {
 		selected = false;

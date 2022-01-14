@@ -121,11 +121,13 @@
     <ClCompile Include="Actions\ActionAddRes.cpp" />
     <ClCompile Include="Actions\ActionAddSwitch.cpp" />
     <ClCompile Include="Actions\ActionCopy.cpp" />
+    <ClCompile Include="Actions\ActionCurrent.cpp" />
     <ClCompile Include="Actions\ActionCut.cpp" />
     <ClCompile Include="Actions\ActionDelete.cpp" />
     <ClCompile Include="Actions\ActionEdit.cpp" />
     <ClCompile Include="Actions\ActionLabel.cpp" />
     <ClCompile Include="Actions\ActionLoad.cpp" />
+    <ClCompile Include="Actions\ActionMultipleDelete.cpp" />
     <ClCompile Include="Actions\ActionPaste.cpp" />
     <ClCompile Include="Actions\ActionRedo.cpp" />
     <ClCompile Include="Actions\ActionSave.cpp" />
@@ -135,6 +137,7 @@
     <ClCompile Include="Actions\ActionSwitchToEditor.cpp" />
     <ClCompile Include="Actions\ActionSwitchToSim.cpp" />
     <ClCompile Include="Actions\ActionUndo.cpp" />
+    <ClCompile Include="Actions\ActionVoltage.cpp" />
     <ClCompile Include="ApplicationManager.cpp" />
     <ClCompile Include="Components\battery.cpp" />
     <ClCompile Include="CMUgraphicsLib\CMUgraphics.cpp" />
@@ -196,11 +199,13 @@
     <ClInclude Include="Actions\ActionAddRes.h" />
     <ClInclude Include="Actions\ActionAddSwitch.h" />
     <ClInclude Include="Actions\ActionCopy.h" />
+    <ClInclude Include="Actions\ActionCurrent.h" />
     <ClInclude Include="Actions\ActionCut.h" />
     <ClInclude Include="Actions\ActionDelete.h" />
     <ClInclude Include="Actions\ActionEdit.h" />
     <ClInclude Include="Actions\ActionLabel.h" />
     <ClInclude Include="Actions\ActionLoad.h" />
+    <ClInclude Include="Actions\ActionMultipleDelete.h" />
     <ClInclude Include="Actions\ActionPaste.h" />
     <ClInclude Include="Actions\ActionRedo.h" />
     <ClInclude Include="Actions\ActionSave.h" />
@@ -209,6 +214,7 @@
     <ClInclude Include="Actions\ActionSwitchToEditor.h" />
     <ClInclude Include="Actions\ActionSwitchToSim.h" />
     <ClInclude Include="Actions\ActionUndo.h" />
+    <ClInclude Include="Actions\ActionVoltage.h" />
     <ClInclude Include="ApplicationManager.h" />
     <ClInclude Include="Components\battery.h" />
     <ClInclude Include="CMUgraphicsLib\CMUgraphics.h" />

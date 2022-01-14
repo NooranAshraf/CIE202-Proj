@@ -17,7 +17,8 @@ enum ActionType
 	EDIT,
 
 	START_SIM,
-	ADD_VOL,
+	VOLTAGE,
+	CURRENT,
 
 	ADD_Label,			//Add Label to a Component, a Connection
 	EDIT_Label,			//Edit Label of a Component, a Connection
@@ -26,11 +27,12 @@ enum ActionType
 
 	SELECT,		//Select a Component, a Connection
 	DEL,		//Delete a Component, a Connection
+
 	MOVE,		//Move a Component, a Connection
-        MODULE,
+	MODULE,
 	SAVE,		//Save the whole Circuit to a file
 	LOAD,		//Load a Circuit from a file
-
+	MultDel,
 	DELET,
 	COPY,
 	CUT,
@@ -38,6 +40,7 @@ enum ActionType
 
 	UNDO,		//Undo the last Action preformed
 	REDO,		//Redo the last Action canceled
+	CALC_CURR,
 
 	DSN_MODE,	//Switch to Design mode
 	SIM_MODE,	//Switch to Simulatiom mode

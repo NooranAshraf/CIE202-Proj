@@ -8,7 +8,7 @@ class Component;	//forward class declaration
 class Connection
 {
 	//connection connects between two compoenets
-	Component	*Cmpnt1, *Cmpnt2;
+	Component* Cmpnt1, * Cmpnt2;
 	GraphicsInfo* pGfxInfo;	//The parameters required to draw a connection
 	string m_label;        //Label of connection
 	bool selected;
@@ -28,3 +28,4 @@ public:
 	void LoadConnection(UI* pUI);
 	~Connection();
 };
+	

@@ -1,8 +1,8 @@
 #include "Component.h"
 
-Component::Component(GraphicsInfo *r_GfxInfo)
+Component::Component(GraphicsInfo* r_GfxInfo)
 {
-	m_pGfxInfo = r_GfxInfo;	
+	m_pGfxInfo = r_GfxInfo;
 	term1_volt = term2_volt = 0;
 	term1_conn_count = term2_conn_count = 0;
 	selected = false;
@@ -38,6 +38,20 @@ void Component::setValue(double copiedvalue) { // for paste feature
 	value = copiedvalue;
 }
 
+void Component::setCurrent(double Current) { // for the fuse
+	this->Current = Current;
+}
+double Component::getCurrent()const { // for the fuse
+	return Current;
+}
+bool Component::getSwitch()const { // for the switch
+	return switched;
+}
+void Component::setSwitch(bool switched) { // for the switch
+	this->switched = switched;
+}
+
+
 void Component::setLabel(string label) {
 	m_Label = label;
 }
@@ -47,14 +61,14 @@ string Component::getLabel() const {
 }
 
 //Get the X component center
- int Component::getCompCenterX(UI* pUI) {
-	 return m_pGfxInfo->PointsList[0].x + pUI->getCompWidth()/2;
- }
+int Component::getCompCenterX(UI* pUI) {
+	return m_pGfxInfo->PointsList[0].x + pUI->getCompWidth() / 2;
+}
 
 //Get the Y component center
- int Component::getCompCenterY(UI* pUI) {
-	 return m_pGfxInfo->PointsList[0].y + pUI->getCompHeight() / 2;
- }
+int Component::getCompCenterY(UI* pUI) {
+	return m_pGfxInfo->PointsList[0].y + pUI->getCompHeight() / 2;
+}
 
 double Component::getResistance() const {
 	return resistance;
@@ -62,6 +76,43 @@ double Component::getResistance() const {
 double Component::getVoltage() const {
 	return voltage;
 }
+
+// Alaa 
+
+ //Set the term1 voltage
+void Component::setTerm1Volt(double v) {
+	term1_volt = v;
+}
+
+//Set the term2 voltage
+void Component::setTerm2Volt(double v) {
+	term2_volt = v;
+}
+
+//Set the Resistance
+void Component::setResistance(double R) {
+	resistance = R;
+}
+
+//Set the SourceVoltage
+void Component::setVoltage(double V) {
+	voltage = V;
+
+}
+
+
+//Get the term1 voltage
+double Component::getTerm1Volt() {
+	return term1_volt;
+}
+
+//Get the term2 voltage
+double Component::getTerm2Volt() {
+	return term2_volt;
+}
+
+
+
 int Component::getID() const {
 	return id;
 } //for the save file
@@ -99,10 +150,7 @@ void Component::DeleteConn(Connection* ConnToDelete) {
 		}
 	}
 }
-/*void Component::CompCut(UI* pUI, Component* CompCut) {
-	CompCut->CopyComp();
-	pUI->ClearDrawingArea();
-}*/
+
 int Component::getterm1conn()const {
 	return term1_conn_count;
 }
@@ -112,7 +160,7 @@ int Component::getterm2conn()const {
 
 
 Component::~Component()
-{ 
+{
 	delete m_pGfxInfo;
 }
 

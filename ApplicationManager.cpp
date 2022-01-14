@@ -22,7 +22,9 @@
 #include "Actions/ActionAddModule.h"
 #include "Actions/ActionUndo.h"
 #include "Actions/ActionRedo.h"
-
+#include "Actions/ActionCurrent.h"
+#include "Actions/ActionVoltage.h"
+#include "Actions\ActionMultipleDelete.h"
 
 
 
@@ -136,7 +138,12 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		case REDO:
 			pAct = new ActionRedo(this);
 			break;
-
+		case CURRENT:
+			pAct = new ActionCurrent(this);
+			break;
+		case VOLTAGE:
+			pAct = new ActionVoltage(this);
+			break;
 			
 
 		case EXIT:
@@ -255,18 +262,23 @@ bool ApplicationManager::DeleteConn(Connection* pConn) {
 void ApplicationManager::Copy(Component* Cp) {
 	CompCopied = Cp;
 }
-void ApplicationManager::Cut(Component* Cp, int x, int y) {
+void ApplicationManager::Cut(Component* Cp) {
 	CompCut = Cp;
-	DeleteComp(x, y);
-	//pUI->ClearDrawingArea();
+	for (int i = 0; i < CompCount; i++) {
+		if (CompCut == CompList[i]) {
+			CompList[i] = nullptr;
+			for (int j = i; j < CompCount - 1; j++)
+				CompList[j] = CompList[j + 1];
+			CompCount--;
+		}
+	}
 }
-	
-Component* ApplicationManager::getCompCopied()const {
-	return CompCopied;
-}
-Component* ApplicationManager::getCompCut()const {
-	return CompCut;
-}
+	Component* ApplicationManager::getCompCopied()const {
+		return CompCopied;
+	}
+	Component* ApplicationManager::getCompCut()const {
+		return CompCut;
+	}
 
 void ApplicationManager::Paste(Component* Pp, GraphicsInfo* pGInfo) {
 	if (CompCopied) {
@@ -421,6 +433,89 @@ void ApplicationManager::MinusList() {
 void ApplicationManager::MinusConn() {
 	ConnList[ConnCount] = nullptr;
 	ConnCount--;
+}
+bool ApplicationManager::IsSeries() {
+	int Count = 0;
+	for (int i = 0; i < CompCount; i++) {
+		if (CompList[i]->getterm1conn() == 1 && CompList[i]->getterm2conn() == 1) {
+			Count++;
+		}
+	}
+	if (Count == CompCount) {
+		return true;
+	}
+	else return false;
+}
+// Validate the circuit before going into simulation mode
+
+bool ApplicationManager::ValidateCircuit() {
+	int Count = 0;
+	for (int i = 0; i < CompCount; i++) {
+		if (dynamic_cast<Ground*>(CompList[i])) {
+			Count++;
+		}
+	}
+	if (Count == 1 && IsSeries() == true) {
+		return true;
+
+	}
+	else return false;
+
+
+}
+
+void ApplicationManager::ToSimulation() {
+	if (!ValidateCircuit()) {
+		pUI->PrintMsg("The circuit is not valid to be simulated");
+		pUI->ClearStatusBar();
+
+	}
+	else {
+		this->IsSimulation = true;
+		// Compute all needed voltages and current
+		double current = CalculateCurrent();
+		CalculateVoltages(current);
+	}
+}
+
+
+
+// Calculate the resistance passing through the circuit
+
+double ApplicationManager::CalculateResistance() {
+	double R = 0;
+	for (int i = 0; i < CompCount; i++) {
+
+		R = R + (CompList[i]->getResistance());
+	}
+	return R;
+}
+
+// Calculate the current passing through the circuit
+double ApplicationManager::CalculateCurrent() {
+	double I = 0;
+	double R = ApplicationManager::CalculateResistance();
+	double v = 0;
+	for (int i = 0; i < CompCount; i++) {
+		if (dynamic_cast<battery*>(CompList[i])) // Get the voltage of the battery 
+		{
+			v = v + CompList[i]->getVoltage();
+
+		}
+	}
+	I = v / R;
+	return I;
+
+}
+
+// Calculate voltage at each component terminal
+void ApplicationManager::CalculateVoltages(double current) {
+	for (int i = 0; i < CompCount; i++) {
+		double Res = CompList[i]->getResistance();
+		double Voltage = Res * current;
+		CompList[i]->setTerm1Volt(Voltage);
+	}
+
 }
 
 ApplicationManager::~ApplicationManager()

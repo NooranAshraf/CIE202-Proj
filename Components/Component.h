@@ -11,58 +11,65 @@
 class Component
 {
 private:
-	
+
 protected:
 	//Each component has two ending terminals (term1, term2)
 	double term1_volt, term2_volt;	//voltage at terminals 1&2
 
 	//Each terminal is connected to set of connections
-	Connection *term1_connections[MAX_CONNS]; //list of pointers to connections
-	Connection *term2_connections[MAX_CONNS];
+	Connection* term1_connections[MAX_CONNS]; //list of pointers to connections
+	Connection* term2_connections[MAX_CONNS];
 
 	int term1_conn_count;	//actual no. of connections to each terminal
 	int term2_conn_count;
 	bool selected;
 	double voltage;
 	double resistance;
+	double Current; //for the fuse
+	bool switched; //on or off the switch
 	string m_Label;
-    
+
 	int id; // theses two lines are for the id of the components to save in the file
 	double value;
 	string Type;
 	string CopiedLabel;
 	double CopiedValue;
 
-
-
-
-	GraphicsInfo *m_pGfxInfo;	//The parameters required to draw a component
+	GraphicsInfo* m_pGfxInfo;	//The parameters required to draw a component
 
 public:
 	static int st_id;
-	Component(GraphicsInfo *r_GfxInfo);
-	//void setTerm1Volt(double v);		//sets the voltage at terminal1
-	//void setTerm2Volt(double v);		//sets the voltage at terminal2
-	//double getTerm1Volt();				//returns the voltage at terminal1
-	//double getTerm2Volt();				//returns the voltage at terminal2
+	Component(GraphicsInfo* r_GfxInfo);
+	void setTerm1Volt(double v);		//sets the voltage at terminal1
+	void setTerm2Volt(double v);		//sets the voltage at terminal2
+	double getTerm1Volt();				//returns the voltage at terminal1
+	double getTerm2Volt();				//returns the voltage at terminal2
 
 	void setValue(double copiedvalue);
 	void setLabel(string label);
+	void setCurrent(double Current);
+	void setSwitch(bool switched);
+	void setResistance(double R);      //sets the resistance value
+	void setVoltage(double V);         //sets the Source Voltage
+
 	string getLabel() const;  //returns the label
 	double getResistance() const;
 	double getVoltage() const;
 	int getID() const; //for the save file
 	Point getCoordinates() const; //for the save file
 	double getValue() const;
+	double getCurrent() const;
+	bool getSwitch() const;
 
-                    
 
-    int getCompCenterX(UI*); // get the horizontal center of the component
+
+
+	int getCompCenterX(UI*); // get the horizontal center of the component
 	int getCompCenterY(UI*);
 
-	Connection** getTerm1_Conn() ;
-	Connection** getTerm2_Conn() ;
-	
+	Connection** getTerm1_Conn();
+	Connection** getTerm2_Conn();
+
 	//virtual int GetOutPinStatus()=0;	//returns status of outputpin if LED, return -1
 	//virtual int GetInputPinStatus(int n)=0;	//returns status of Inputpin # n if SWITCH, return -1
 
@@ -77,13 +84,13 @@ public:
 	virtual void PasteComp() = 0;
 	virtual void SaveComponent(ofstream& file) = 0;
 	virtual void LoadComponent(string labell, int valuee, int idd) = 0;
-	
-	virtual void Draw(UI*)=0;
-	virtual void Edit(UI*)=0;
 
-	
-	Component();	
-	
+	virtual void Draw(UI*) = 0;
+	virtual void Edit(UI*) = 0;
+
+
+	Component();
+
 	//Destructor must be virtual
 	virtual ~Component();
 };

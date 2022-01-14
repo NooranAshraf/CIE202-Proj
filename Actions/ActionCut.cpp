@@ -24,16 +24,16 @@ void ActionCut::Execute()
 	//Clear Status Bar
 	pUI->ClearStatusBar();
 
-	
+
 
 	ComptoCut = pManager->ReturnComp(Cx, Cy);
-	
+
 
 	if (ComptoCut != nullptr) {
 		pManager->Cut(ComptoCut);
 		ComptoCut->CopyComp();
 		//pManager->DeleteComp(Cx, Cy);
-		
+
 		pUI->ClearStatusBar();
 	}
 	else {
@@ -44,7 +44,7 @@ void ActionCut::Execute()
 		pUI->CreateStatusBar();
 	}
 
-	
+
 }
 
 void ActionCut::Undo()

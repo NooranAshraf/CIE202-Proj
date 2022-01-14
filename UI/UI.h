@@ -71,10 +71,11 @@ class UI
 		ITM_CIRC_SIM,	//Circuit Simulate menu item
 
 		//TODO:Add more items names here
-         ITM_VOL,  // adds a voltmeter
-        ITM_SWITCH_TO_DSN,
+		ITM_VOLTAGE,  // adds a voltmeter
+		ITM_AMMETER,
+		ITM_SWITCH_TO_DSN,
 
-		
+
 		ITM_SIM_CNT,		//no. of simulation menu items ==> This should be the last line in this enum
 		
 	
@@ -82,8 +83,10 @@ class UI
 
 	enum EditorMenuItem
 	{
+		ITM_LABEL,
 		ITM_EDIT,
 		ITM_DELETE,
+		ITM_MULTIPLE_DELETE,
 		ITM_COPY,
 		ITM_CUT,
 		ITM_PASTE,

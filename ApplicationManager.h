@@ -22,6 +22,7 @@ private:
 	UI* pUI; //pointer to the UI
 	stack<Action* > stackUndo;
 	stack<Action*> stackRedo;
+	bool IsSimulation;
 
 protected:
 	Component* CompCopied;
@@ -65,7 +66,7 @@ public:
 	bool DeleteConn(Connection* pConn);
 	void Copy(Component* Cp);
 	void Paste(Component* Pp, GraphicsInfo* pGInfo);
-	void Cut(Component* Cp, int x, int y);
+	void Cut(Component* Cp);
 	void Undo();
 	void MinusList();
 	void MinusConn();
@@ -80,6 +81,13 @@ public:
 	Component* ReturnComp(int x, int y);
 	Component* ReturnCompbyID(int id);
 
+
+	bool ValidateCircuit();
+	bool IsSeries();
+	void ToSimulation(); // Switches to simulation mode
+	double CalculateCurrent();
+	void CalculateVoltages(double current);
+	double CalculateResistance();
 	//destructor
 	~ApplicationManager();
 };
